@@ -310,7 +310,7 @@ export default function Navbar() {
           <div className="site-header-wrapper">
             <Link href="/">
               <a className="site-brand">
-                <Image src={SiteLogo} alt="siteLogo" width={50} height={50} />
+                <img src={SiteLogo.src} alt="siteLogo" width={50} height={50} />
                 <h1>Wish Wheels</h1>
               </a>
             </Link>
