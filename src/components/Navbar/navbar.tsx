@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
-import Logo from "../../../public/wishwheels-logo.svg";
+import SiteLogo from "../../../public/wishwheels-logo.svg";
 import Link from "next/link";
 import { LocationChip } from "../Navbar/navbarElement";
 import { useRouter } from "next/router";
@@ -310,7 +310,7 @@ export default function Navbar() {
           <div className="site-header-wrapper">
             <Link href="/">
               <a className="site-brand">
-                <Image src={Logo} alt="siteLogo" width={50} height={50} />
+                <Image src={SiteLogo} alt="siteLogo" width={50} height={50} />
                 <h1>Wish Wheels</h1>
               </a>
             </Link>
