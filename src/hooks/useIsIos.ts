@@ -10,13 +10,17 @@ export default function useIsIOS() {
 
   //   Functions
   const checkForIOS = () => {
+    let lastPrompt: any;
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      lastPrompt = moment(localStorage.getItem("installPrompt"));
+    }
     let wn: any;
     wn = window.navigator;
     if (wn.standalone) {
       return false;
     }
     const today = moment().add(1, "days").toDate();
-    const lastPrompt = moment(localStorage.getItem("installPrompt"));
     const days = moment(today).diff(lastPrompt, "days");
     const ua = window.navigator.userAgent;
     const isIPad = !!ua.match(/iPad/i);

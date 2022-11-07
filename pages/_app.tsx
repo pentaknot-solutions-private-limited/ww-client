@@ -52,7 +52,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   // }, []);
 
   useEffect(() => {
-    let installed = localStorage.getItem("installPrompt");
+    let installed: any;
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      installed = localStorage.getItem("installPrompt");
+    }
     console.log(installed);
     if (installed === "true") {
       setIsIos(false);

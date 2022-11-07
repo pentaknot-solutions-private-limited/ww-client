@@ -1,5 +1,18 @@
 {
+  "/404": "pages/404.html",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/about-us": "pages/about-us.html",
+  "/api/hello": "pages/api/hello.js",
+  "/book-car": "pages/book-car.html",
+  "/car-collection": "pages/car-collection.html",
+  "/car-detail": "pages/car-detail.html",
+  "/contact-us": "pages/contact-us.html",
+  "/faq": "pages/faq.html",
+  "/history": "pages/history.html",
+  "/": "pages/index.html",
+  "/privacy-policy": "pages/privacy-policy.html",
+  "/sell-car": "pages/sell-car.html",
+  "/terms-of-service": "pages/terms-of-service.html",
   "/_error": "pages/_error.js"
 }

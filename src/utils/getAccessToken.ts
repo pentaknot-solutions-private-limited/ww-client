@@ -6,13 +6,13 @@ export const xAccessToken = (): string => {
   if (typeof window !== "undefined") {
     if (localStorage) {
       user = localStorage.getItem("jwt") || "";
-      console.log(user);
+      // console.log(user);
 
       if (user) {
         token = JSON.parse(user).accessToken;
       }
     }
-    console.log(token);
+    // console.log(token);
   }
   return token;
 };

@@ -20,7 +20,12 @@ export default function MakeOfferCta({ carId, carData }: any) {
 
   // Function
   const makeOffer = () => {
-    if (localStorage.getItem("jwt")) {
+    let jwt: any;
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      jwt = localStorage.getItem("jwt");
+    }
+    if (jwt) {
       setAuthenticated(false);
       router.push({
         pathname: "/book-car",

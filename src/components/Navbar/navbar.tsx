@@ -196,7 +196,12 @@ export default function Navbar() {
   };
 
   const verifyAuth = () => {
-    if (localStorage.getItem("jwt")) {
+    let jwt: any;
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      jwt = localStorage.getItem("jwt");
+    }
+    if (jwt) {
       // go to your dashboard or home route
       setLoggedIn(true);
     } else {
@@ -207,7 +212,12 @@ export default function Navbar() {
   };
 
   const sellcar = () => {
-    if (localStorage.getItem("jwt")) {
+    let jwt: any;
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      jwt = localStorage.getItem("jwt");
+    }
+    if (jwt) {
       setAuthenticated(false);
       router.push({
         pathname: "/sell-car",
@@ -235,7 +245,11 @@ export default function Navbar() {
   };
 
   const displayUserName = () => {
-    let userName = localStorage.getItem("jwt");
+    let userName: any;
+    if (typeof window !== "undefined") {
+      // Perform localStorage action
+      userName = localStorage.getItem("jwt");
+    }
     if (userName) {
       return JSON.parse(userName)?.firstName;
     } else {
