@@ -70,6 +70,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script
+        src="https://forms.app/static/embed.js"
+        type="text/javascript"
+      ></Script>
+      <Script strategy="lazyOnload">
+        {`var formsappForm = new formsapp('6416b5746c84801d4ba65b7d', 'popover', {"button":{"color":"#ff9e24"},"align":"right"})`}
+      </Script>
+      <Script
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
