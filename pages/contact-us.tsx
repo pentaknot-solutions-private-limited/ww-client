@@ -25,8 +25,7 @@ export default function ContactUs() {
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const initialValues = {
-    firstName: "",
-    lastName: "",
+    name: "",
     emailId: "",
     phoneNumber: "",
     cityName: "",
@@ -34,10 +33,9 @@ export default function ContactUs() {
   };
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string()
+    name: Yup.string()
       .min(2, "To shorts")
       .required("This field can't be blank "),
-    lastName: Yup.string(),
     emailId: Yup.string().email().required("This field can't be blank"),
     phoneNumber: Yup.string()
       .matches(phoneRegExp, "Phone number is not valid")
@@ -53,12 +51,9 @@ export default function ContactUs() {
 
   // Functions
   const handleSubmit = (values: any, actions: any) => {
-    const { firstName, lastName, emailId, phoneNumber, cityName, query } =
-      values;
-    console.log(values);
+    const { name, emailId, phoneNumber, cityName, query } = values;
     setContactUsData({
-      firstName,
-      lastName,
+      name,
       emailId,
       phoneNumber,
       cityName,
@@ -176,27 +171,27 @@ export default function ContactUs() {
                     <Grid container spacing={2}>
                       <Grid
                         item
-                        xs={6}
-                        md={6}
+                        xs={12}
+                        md={12}
                         className="book-trail-form-field sell-car"
                       >
                         <StyledTextField
                           required
-                          name="firstName"
+                          name="name"
                           autoComplete={"" + Math.random()}
                           error
-                          value={props.values.firstName}
+                          value={props.values.name}
                           onChange={props.handleChange}
                           onBlur={props.handleBlur}
                           variant="filled"
-                          label="First Name"
+                          label="Name"
                           fullWidth
                         />
                         <span className="error">
-                          {props.touched.firstName && props.errors.firstName}
+                          {props.touched.name && props.errors.name}
                         </span>
                       </Grid>
-                      <Grid
+                      {/* <Grid
                         item
                         xs={6}
                         md={6}
@@ -216,7 +211,7 @@ export default function ContactUs() {
                         <span className="error">
                           {props.touched.lastName && props.errors.lastName}
                         </span>
-                      </Grid>
+                      </Grid> */}
                       <Grid
                         item
                         xs={6}
