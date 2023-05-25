@@ -6,3 +6,8 @@ export class ContactUsService {
     return axios.post(`${APIURL}/contact`, payload);
   }
 }
+export class ContactUsLeadService {
+  ContactUsLead(payload: any) {
+    return axios.post(`${APIURL}/contact-leads`, payload);
+  }
+}

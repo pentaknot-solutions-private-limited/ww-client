@@ -71,6 +71,7 @@ export default function Home() {
       setStats({
         serviceCities: landingDetail?.NoOfCity,
         numberOfCars: landingDetail?.NoOfCar,
+        customersServed: landingDetail?.customersServed,
       });
     }
   }, [landingDetail]);

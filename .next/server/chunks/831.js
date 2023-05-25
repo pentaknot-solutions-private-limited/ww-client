@@ -1,7 +1,17 @@
 "use strict";
-exports.id = 210;
-exports.ids = [210];
+exports.id = 831;
+exports.ids = [831];
 exports.modules = {
+
+/***/ 4404:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/success-booking.f2a66f18.png","height":240,"width":240,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAYFBMVEVMaXHYnSf/RlX2sSzilYDVrDS4Ev7ZL0kg1a//sxPjlYfUh5//gBr7LxT+clqnJf/NA//7ghhepkTyoydoYf8A/9M2c6k1V6yPMYiWTXvxplfrrUt5dYdyTYaZW3X6pTiaOcxhAAAAG3RSTlMAJlJp/hlZCg9FzrZNQys9E2NAQmIhf66xgNrTfyFhAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQUlEQVR4nBXBBxKAIAwAwRtaAij2iuX/v3TcBaUPCDAuXdAWkHUuKgXstU1xaCDVezceonPvcxghV5es93DmyO8DWtMCgovojhMAAAAASUVORK5CYII="});
+
+/***/ }),
 
 /***/ 210:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
