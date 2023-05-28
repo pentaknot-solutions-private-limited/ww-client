@@ -93,7 +93,6 @@ export default function Authenticate({
   };
 
   const signInHandelSubmit = (values: any, { resetForm }: any) => {
-    // console.log(values);
     setAuthenticationError(null);
     setLoggedInData(values);
 
@@ -105,7 +104,6 @@ export default function Authenticate({
   };
   const signUpHandelSubmit = (values: any, { resetForm }: any) => {
     setAuthenticationError(null);
-    console.log(values);
     let { firstName, lastName, emailId, phoneNumber } = values;
     let payload = emailId
       ? {
@@ -127,7 +125,6 @@ export default function Authenticate({
 
   const otpHandelSubmit = (values: any, { resetForm }: any) => {
     setAuthenticationError(null);
-    console.log(values);
     const otp = `
             ${values.otp1}${values.otp2}${values.otp3}${values.otp4}${values.otp5}${values.otp6}
             `;
@@ -141,11 +138,7 @@ export default function Authenticate({
     setLoggedInData({
       userData: signUpData?.phoneNumber,
     });
-    // console.log("bad it is working of the loading");
   };
-
-  // const handleOtpOpen = () => setOptModal(true);
-  // const handleOtpClose = () => setOptModal(false);
 
   // Effects
 
@@ -232,7 +225,6 @@ export default function Authenticate({
                         value={formik.values.userData}
                         onChange={(event: any) => {
                           formik.handleChange(event);
-                          // console.log(event.target.value);
                           if (
                             event.target.value > 3 &&
                             /\d/.test(event.target.value)

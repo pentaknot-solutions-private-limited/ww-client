@@ -66,7 +66,6 @@ export default function Navbar() {
     document.body.classList.remove("overflow-hidden");
   };
   const ScrollBackground = () => {
-    // console.log(window.scrollY);
     if (window.scrollY >= 85) {
       setNavbarScroll(true);
     } else {
@@ -114,11 +113,6 @@ export default function Navbar() {
     try {
       const signUpApiCall = await authenticationService.userSignUp(payload);
       if (!signUpApiCall.data.error) {
-        // const signUpData = {
-        //   userData: payload?.emailId,
-        // };
-        console.log(signUpApiCall.data);
-        // _generateOtp(signUpData);
         setSendOtp("true");
         setLoading(false);
       } else {
@@ -128,9 +122,7 @@ export default function Navbar() {
       }
     } catch (error: any) {
       console.log(error);
-      console.log(error?.request);
       let errorResponse = JSON.parse(error?.request?.response);
-      console.log(errorResponse?.message);
       setAuthenticationError(errorResponse?.message);
       setLoading(false);
       setSendOtp(null);
@@ -142,7 +134,6 @@ export default function Navbar() {
     setLoading(true);
     try {
       const generateOtpData = await otpService.generateOtp(payload);
-      console.log(generateOtpData);
       if (!generateOtpData?.data?.error) {
         setOptModal(true);
         setLoading(false);
@@ -172,7 +163,6 @@ export default function Navbar() {
       const verifyOtpApiCall = await otpService.verifyOtp(payload);
       setSuccessLoggedIn(false);
       if (!verifyOtpApiCall.data.error) {
-        console.log(verifyOtpApiCall);
         setJwt(verifyOtpApiCall.data.data);
         setOptModal(false);
         handleClose();
@@ -184,9 +174,7 @@ export default function Navbar() {
       }
     } catch (error: any) {
       console.log(error);
-      console.log(error?.request);
       let errorResponse = JSON.parse(error?.request?.response);
-      console.log(errorResponse?.message);
       setAuthenticationError(errorResponse?.message);
       setLoading(false);
     }
@@ -223,7 +211,6 @@ export default function Navbar() {
         pathname: "/sell-car",
       });
       closeMenu();
-      // console.log("closing...");
     } else {
       setAuthenticated(true);
     }
@@ -275,12 +262,6 @@ export default function Navbar() {
     window.addEventListener("scroll", ScrollBackground);
     verifyAuth();
   }, []);
-
-  useEffect(() => {
-    if (loggedIn) {
-      console.log(userName);
-    }
-  }, [loggedIn]);
 
   useEffect(() => {
     verifyAuth();

@@ -69,7 +69,6 @@ export default function ContactUs() {
     try {
       const contactUsApiCall = await contactUsService.contactUs(payload);
       if (!contactUsApiCall.data.error) {
-        console.log(contactUsApiCall.data.data);
         setLoading(false);
         setSuccessAlert(true);
       } else {
@@ -80,7 +79,6 @@ export default function ContactUs() {
     } catch (error: any) {
       console.log(error);
       let errorResponse = JSON.parse(error?.request?.response);
-      console.log(errorResponse?.message);
       setContactUsError(errorResponse?.message);
       setLoading(false);
     }

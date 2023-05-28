@@ -63,9 +63,7 @@ export default function CarListing({ allCars }: any) {
   };
 
   const handleReset = (form: any) => {
-    console.log(form);
     form.resetForm();
-    // setOpen(false);
   };
 
   const handleSubmit = (values: any) => {
@@ -112,7 +110,6 @@ export default function CarListing({ allCars }: any) {
       brand: brandlist,
       // "brand": brandlist?.length > 0 ? brandlist : undefined,
     };
-    // console.log(convertedFilterValue);
 
     setFilterData(convertedFilterValue);
     setRawData(values);
@@ -123,7 +120,6 @@ export default function CarListing({ allCars }: any) {
     const postFilterList = carFilterService.postAllFilter(data);
     postFilterList.then((res) => {
       setIsLoading(false);
-      // console.log(res.data);
       setOpen(false);
     });
   };
@@ -133,7 +129,6 @@ export default function CarListing({ allCars }: any) {
     const brands = _allBrandService.getAllBrands();
     brands.then((res) => {
       if (res.status == 200) {
-        // console.log(res.data.data)
         // #1. Add the data to the brand list
         const data = res?.data?.data;
         setBrandList(data);

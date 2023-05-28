@@ -25,7 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8996);
+/* harmony import */ var _src_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6507);
 /* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8442);
 /* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mui_material_styles__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8204);
@@ -37,9 +37,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_script__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9358);
 /* harmony import */ var _src_services_contact_us__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(5844);
-/* harmony import */ var _public_success_booking_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(4404);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(1664);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5692);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_mui_material__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(4173);
+/* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_11__);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_8__]);
 _src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_8__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
@@ -83,6 +84,9 @@ function MyApp({ Component , pageProps  }) {
                 setIsUserIsSubscribed(true);
                 setShowPopupForm(false);
                 setSuccessAlert(true);
+                setTimeout(()=>{
+                    setSuccessAlert(false);
+                }, 3000);
             } else {
                 localStorage.setItem("isUserIsSubscribed", JSON.stringify(false));
                 setIsUserIsSubscribed(false);
@@ -116,15 +120,6 @@ function MyApp({ Component , pageProps  }) {
             setShowPopupForm(true);
         }, 3000);
     }, []);
-    (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(()=>{
-        console.log("isUserIsSubscribed", {
-            isUserIsSubscribed,
-            showPopupForm
-        });
-    }, [
-        isUserIsSubscribed,
-        showPopupForm
-    ]);
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_7___default()), {
@@ -183,43 +178,21 @@ window.dataLayer = window.dataLayer || [];
                                 showPopupForm: showPopupForm,
                                 setShowPopupForm: setShowPopupForm
                             }) : null,
-                            successAlert && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                        className: "dropbox",
-                                        onClick: (e)=>{
-                                            e.preventDefault();
-                                            setSuccessAlert(false);
-                                        }
-                                    }),
-                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                        className: "succes-card",
-                                        children: [
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
-                                                className: "close-btn",
-                                                onClick: (e)=>{
-                                                    e.preventDefault();
-                                                    setSuccessAlert(false);
-                                                },
-                                                children: "\xd7"
-                                            }),
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                                src: _public_success_booking_png__WEBPACK_IMPORTED_MODULE_10__/* ["default"].src */ .Z.src,
-                                                alt: "succes booking"
-                                            }),
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
-                                                children: "Thanks for sharing details!"
-                                            }),
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                                children: "Our team will contact you shortly."
-                                            }),
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_11___default()), {
-                                                href: "/car-collection",
-                                                children: "Browse Car"
-                                            })
-                                        ]
+                            successAlert && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_10__.Alert, {
+                                className: "success-login-popup",
+                                severity: "success",
+                                action: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_10__.IconButton, {
+                                    "aria-label": "close",
+                                    color: "inherit",
+                                    size: "small",
+                                    onClick: ()=>{
+                                        setSuccessAlert(false);
+                                    },
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_11___default()), {
+                                        fontSize: "inherit"
                                     })
-                                ]
+                                }),
+                                children: "Thanks for sharing details - Our team will contact you shortly."
                             })
                         ]
                     })
@@ -271,7 +244,6 @@ const FormPopup = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1___default().for
         }
     });
     const handleOnSubmit = (e)=>{
-        console.log(e);
         setLoading(true);
         props === null || props === void 0 ? void 0 : props.contactUsLead(e, ()=>{
             reset({
@@ -550,7 +522,7 @@ function InstallPWAModel({ open , setOpen  }) {
 
 /***/ }),
 
-/***/ 8996:
+/***/ 6507:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -590,9 +562,6 @@ function OtpForm(props) {
         if (elmnt.target.value.length > elmnt.target.maxLength) elmnt.target.value = elmnt.target.value.slice(0, elmnt.target.maxLength);
     };
     const inputfocus = (elmnt)=>{
-        // if (elmnt.target.value != '') {
-        //     console.log(elmnt);
-        // }
         if (elmnt.key === "Delete" || elmnt.key === "Backspace") {
             const next = elmnt.target.tabIndex - 2;
             if (next > -1) {
@@ -765,7 +734,6 @@ function Authenticate({ generateOtp , verifyOtp , authenticationError , setAuthe
         setAuthenticationError(null);
     };
     const signInHandelSubmit = (values, { resetForm  })=>{
-        // console.log(values);
         setAuthenticationError(null);
         setLoggedInData(values);
         // handleOtpOpen();
@@ -776,7 +744,6 @@ function Authenticate({ generateOtp , verifyOtp , authenticationError , setAuthe
     };
     const signUpHandelSubmit = (values, { resetForm  })=>{
         setAuthenticationError(null);
-        console.log(values);
         let { firstName , lastName , emailId , phoneNumber  } = values;
         let payload = emailId ? {
             firstName: firstName,
@@ -795,7 +762,6 @@ function Authenticate({ generateOtp , verifyOtp , authenticationError , setAuthe
     };
     const otpHandelSubmit = (values, { resetForm  })=>{
         setAuthenticationError(null);
-        console.log(values);
         const otp = `
             ${values.otp1}${values.otp2}${values.otp3}${values.otp4}${values.otp5}${values.otp6}
             `;
@@ -808,10 +774,7 @@ function Authenticate({ generateOtp , verifyOtp , authenticationError , setAuthe
         setLoggedInData({
             userData: signUpData === null || signUpData === void 0 ? void 0 : signUpData.phoneNumber
         });
-    // console.log("bad it is working of the loading");
     };
-    // const handleOtpOpen = () => setOptModal(true);
-    // const handleOtpClose = () => setOptModal(false);
     // Effects
     (0,external_react_.useEffect)(()=>{
         if (loggedInData) {
@@ -919,7 +882,6 @@ function Authenticate({ generateOtp , verifyOtp , authenticationError , setAuthe
                                                 value: formik.values.userData,
                                                 onChange: (event)=>{
                                                     formik.handleChange(event);
-                                                    // console.log(event.target.value);
                                                     if (event.target.value > 3 && /\d/.test(event.target.value)) {
                                                         if (phoneRegExp.test(event.target.value)) {
                                                             setSignInError(false);
@@ -1174,9 +1136,9 @@ function useLocalStorage(key, initialValue) {
 
 // EXTERNAL MODULE: ./src/context/AuthContext.js
 var AuthContext = __webpack_require__(39);
-;// CONCATENATED MODULE: external "@mui/icons-material/Close"
-const Close_namespaceObject = require("@mui/icons-material/Close");
-var Close_default = /*#__PURE__*/__webpack_require__.n(Close_namespaceObject);
+// EXTERNAL MODULE: external "@mui/icons-material/Close"
+var Close_ = __webpack_require__(4173);
+var Close_default = /*#__PURE__*/__webpack_require__.n(Close_);
 ;// CONCATENATED MODULE: ./src/components/Navbar/navbar.tsx
 
 /* eslint-disable react-hooks/exhaustive-deps */ 
@@ -1227,7 +1189,6 @@ function Navbar() {
         document.body.classList.remove("overflow-hidden");
     };
     const ScrollBackground = ()=>{
-        // console.log(window.scrollY);
         if (window.scrollY >= 85) {
             setNavbarScroll(true);
         } else {
@@ -1267,11 +1228,6 @@ function Navbar() {
         try {
             const signUpApiCall = await authenticationService.userSignUp(payload);
             if (!signUpApiCall.data.error) {
-                // const signUpData = {
-                //   userData: payload?.emailId,
-                // };
-                console.log(signUpApiCall.data);
-                // _generateOtp(signUpData);
                 setSendOtp("true");
                 setLoading(false);
             } else {
@@ -1282,9 +1238,7 @@ function Navbar() {
         } catch (error) {
             var ref;
             console.log(error);
-            console.log(error === null || error === void 0 ? void 0 : error.request);
             let errorResponse = JSON.parse(error === null || error === void 0 ? void 0 : (ref = error.request) === null || ref === void 0 ? void 0 : ref.response);
-            console.log(errorResponse === null || errorResponse === void 0 ? void 0 : errorResponse.message);
             setAuthenticationError(errorResponse === null || errorResponse === void 0 ? void 0 : errorResponse.message);
             setLoading(false);
             setSendOtp(null);
@@ -1296,7 +1250,6 @@ function Navbar() {
         try {
             var ref;
             const generateOtpData = await otpService.generateOtp(payload);
-            console.log(generateOtpData);
             if (!(generateOtpData === null || generateOtpData === void 0 ? void 0 : (ref = generateOtpData.data) === null || ref === void 0 ? void 0 : ref.error)) {
                 setOptModal(true);
                 setLoading(false);
@@ -1327,7 +1280,6 @@ function Navbar() {
             const verifyOtpApiCall = await otpService.verifyOtp(payload);
             setSuccessLoggedIn(false);
             if (!verifyOtpApiCall.data.error) {
-                console.log(verifyOtpApiCall);
                 setJwt(verifyOtpApiCall.data.data);
                 setOptModal(false);
                 handleClose();
@@ -1340,9 +1292,7 @@ function Navbar() {
         } catch (error) {
             var ref;
             console.log(error);
-            console.log(error === null || error === void 0 ? void 0 : error.request);
             let errorResponse = JSON.parse(error === null || error === void 0 ? void 0 : (ref = error.request) === null || ref === void 0 ? void 0 : ref.response);
-            console.log(errorResponse === null || errorResponse === void 0 ? void 0 : errorResponse.message);
             setAuthenticationError(errorResponse === null || errorResponse === void 0 ? void 0 : errorResponse.message);
             setLoading(false);
         }
@@ -1371,7 +1321,6 @@ function Navbar() {
                 pathname: "/sell-car"
             });
             closeMenu();
-        // console.log("closing...");
         } else {
             setAuthenticated(true);
         }
@@ -1414,13 +1363,6 @@ function Navbar() {
         window.addEventListener("scroll", ScrollBackground);
         verifyAuth();
     }, []);
-    (0,external_react_.useEffect)(()=>{
-        if (loggedIn) {
-            console.log(userName1);
-        }
-    }, [
-        loggedIn
-    ]);
     (0,external_react_.useEffect)(()=>{
         verifyAuth();
     }, [
@@ -1702,6 +1644,13 @@ const theme = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_0__.createTheme)(
 
 /***/ }),
 
+/***/ 4173:
+/***/ ((module) => {
+
+module.exports = require("@mui/icons-material/Close");
+
+/***/ }),
+
 /***/ 5692:
 /***/ ((module) => {
 
@@ -1919,7 +1868,7 @@ module.exports = import("react-hook-form");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [686,675,676,664,189,831], () => (__webpack_exec__(3847)));
+var __webpack_exports__ = __webpack_require__.X(0, [686,675,676,664,189,210], () => (__webpack_exec__(3847)));
 module.exports = __webpack_exports__;
 
 })();

@@ -26,7 +26,6 @@ export default function Home() {
     const api: any = landingService.getAllLandingService();
     api.then((res: any) => {
       if (res.status == 200) {
-        // console.log(res.data);
         // #1. First section
         setLandingDetail(res.data.data);
         // #2. Second section (stats section)
@@ -41,9 +40,7 @@ export default function Home() {
     const latestArrivalApi = landingService.getAllLatesArrival();
     latestArrivalApi.then((res: any) => {
       if (res.status == 200) {
-        // console.log(res.data.data);
         const data = res.data.data;
-        // console.log(data);
         // #1. Latest Arrival
         setLatestArrival(data);
       }

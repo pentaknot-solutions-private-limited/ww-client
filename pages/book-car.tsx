@@ -18,7 +18,6 @@ export default function BookCar() {
     const carDetailData = carDetailService.getCarDetailById(carId);
     carDetailData.then((res: any) => {
       if (res.status == 200) {
-        // console.log(res.data.data)
         // #1. Storing all car Detail in the States
         setCarDetail(res.data.data);
       }

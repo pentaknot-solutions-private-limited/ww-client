@@ -32,15 +32,10 @@ export default function CarCollection() {
     const allCarsList = _carService.getAllCollection();
     allCarsList.then((res: any) => {
       if (res.status == 200) {
-        // console.log(res.data.data);
         const data = res.data.data;
         setCars(data);
       }
     });
-  };
-
-  const shareUrl = () => {
-    console.log("working..");
   };
 
   const getComapnyDetails = async () => {

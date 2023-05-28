@@ -38,7 +38,6 @@ export default function Footer({
     const socialMediaApiCall = socialMediaService.socialMedia();
     socialMediaApiCall.then((res: any) => {
       if (!res?.data?.error) {
-        // console.log(res?.data?.data);
         setSocialLinkList(res?.data?.data);
       }
     });

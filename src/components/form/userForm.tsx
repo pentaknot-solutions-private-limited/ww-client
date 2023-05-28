@@ -28,8 +28,6 @@ export default function UserForm({ formik }: any) {
     const citiesList = citiesService.getAllCities();
     citiesList.then((res) => {
       if (res.status == 200) {
-        // console.log(res.data.data);
-
         // #1. Adding the city list in the state
         setCities(res.data.data);
       }

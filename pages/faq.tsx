@@ -65,7 +65,6 @@ export default function Faq() {
     const faqData: any = faqService.getAllFaq();
     faqData.then((res: any) => {
       if (res.status == 200) {
-        // console.log(res.data.data)
         // #1. getting all Faqs data
         setFaqList(res.data.data);
       }

@@ -110,9 +110,6 @@ export default function SellCarComponent() {
       pincode,
       cityName,
     } = values;
-    // console.log(JSON.stringify(values, null, 2));
-    // const year = values?.year;
-    // console.log(moment(year).format("YYYY"));
     setSellCarData({
       userId: userJwtData(),
       brandId,
@@ -163,19 +160,15 @@ export default function SellCarComponent() {
     try {
       const sellCarApiCall = await carService.sellCar(payload);
       if (!sellCarApiCall.data.error) {
-        console.log(sellCarApiCall.data);
         setActiveStep(activeStep + 1);
         setLoading(false);
       } else {
         setSellCarError(sellCarApiCall.data.error);
-        // console.log();
-
         setLoading(false);
       }
     } catch (error: any) {
       console.log(error);
       let errorResponse = JSON.parse(error?.request?.response);
-      console.log(errorResponse?.message);
       setSellCarError(errorResponse?.message);
       setLoading(false);
     }

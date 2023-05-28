@@ -135,7 +135,8 @@ export default function CarDetailComponent({ carData }: any) {
                       </div>
                     </div>
                   </div>
-                  {/* <div className="car-summary-group">
+
+                  <div className="car-summary-group">
                     <div className="img-wrapper">
                       <img src={Seater.src} height={28} width={28} alt="" />
                     </div>
@@ -145,7 +146,7 @@ export default function CarDetailComponent({ carData }: any) {
                         {(carDetail && carDetail?.carNumber) || `-`}
                       </div>
                     </div>
-                  </div> */}
+                  </div>
 
                   {/* <div className="car-summary-group">
                     <div className="img-wrapper">

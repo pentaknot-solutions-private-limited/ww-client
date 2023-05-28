@@ -138,7 +138,6 @@ function Footer({ className , ctaTitle , ctaAction , ctaBtnText  }) {
             var ref;
             if (!(res === null || res === void 0 ? void 0 : (ref = res.data) === null || ref === void 0 ? void 0 : ref.error)) {
                 var ref1;
-                // console.log(res?.data?.data);
                 setSocialLinkList(res === null || res === void 0 ? void 0 : (ref1 = res.data) === null || ref1 === void 0 ? void 0 : ref1.data);
             }
         });

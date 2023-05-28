@@ -5,9 +5,9 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/57dSU-DFqCICfOSeQPue1/_buildManifest.js",
-    "static/57dSU-DFqCICfOSeQPue1/_ssgManifest.js",
-    "static/57dSU-DFqCICfOSeQPue1/_middlewareManifest.js"
+    "static/OigQocOxJffo1Z5qxue-U/_buildManifest.js",
+    "static/OigQocOxJffo1Z5qxue-U/_ssgManifest.js",
+    "static/OigQocOxJffo1Z5qxue-U/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
@@ -29,7 +29,7 @@
       "static/chunks/framework-bb5c596eafb42b22.js",
       "static/chunks/main-a808fd481d46c18b.js",
       "static/css/3295d372eec064cd.css",
-      "static/chunks/pages/_app-0215393f3c605c62.js"
+      "static/chunks/pages/_app-3c699c3f6a894c8c.js"
     ],
     "/_error": [
       "static/chunks/webpack-cb7634a8b6194820.js",
@@ -51,7 +51,7 @@
       "static/chunks/931-65a644dd250b5344.js",
       "static/chunks/852-1afac87b7d5772c0.js",
       "static/chunks/302-e7e3a6fa3b2389e8.js",
-      "static/chunks/pages/book-car-b52ba2f3bf38c8ca.js"
+      "static/chunks/pages/book-car-5fac216ddfe7045a.js"
     ],
     "/car-collection": [
       "static/chunks/webpack-cb7634a8b6194820.js",
@@ -67,13 +67,13 @@
       "static/chunks/main-a808fd481d46c18b.js",
       "static/chunks/289-dad5881915f9c997.js",
       "static/css/38e922c224623dda.css",
-      "static/chunks/pages/car-detail-937d20e5c3f02eac.js"
+      "static/chunks/pages/car-detail-ef809d23da35747e.js"
     ],
     "/contact-us": [
       "static/chunks/webpack-cb7634a8b6194820.js",
       "static/chunks/framework-bb5c596eafb42b22.js",
       "static/chunks/main-a808fd481d46c18b.js",
-      "static/chunks/pages/contact-us-451282b0faa5da19.js"
+      "static/chunks/pages/contact-us-bd413eea3e2bd194.js"
     ],
     "/faq": [
       "static/chunks/webpack-cb7634a8b6194820.js",
@@ -87,7 +87,7 @@
       "static/chunks/framework-bb5c596eafb42b22.js",
       "static/chunks/main-a808fd481d46c18b.js",
       "static/chunks/75fc9c18-2e9ae03a475db518.js",
-      "static/chunks/pages/history-ae7cb159f42959e9.js"
+      "static/chunks/pages/history-2962b3af3c517e3d.js"
     ],
     "/privacy-policy": [
       "static/chunks/webpack-cb7634a8b6194820.js",
@@ -101,7 +101,7 @@
       "static/chunks/main-a808fd481d46c18b.js",
       "static/chunks/75fc9c18-2e9ae03a475db518.js",
       "static/chunks/931-65a644dd250b5344.js",
-      "static/chunks/pages/sell-car-c791138316dab470.js"
+      "static/chunks/pages/sell-car-624df4207260d146.js"
     ],
     "/terms-of-service": [
       "static/chunks/webpack-cb7634a8b6194820.js",

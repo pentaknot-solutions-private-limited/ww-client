@@ -64,7 +64,6 @@ export default function History() {
       getAllBookingDetailId(userData);
       getInspectionById(userData);
     }
-    console.log(userData);
   }, [userData]);
 
   return (

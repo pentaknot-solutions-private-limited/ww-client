@@ -16,6 +16,8 @@ import { Transition } from "react-transition-group";
 import { ContactUsLeadService } from "../src/services/contact-us";
 import SuccessBookingPng from "../public/success-booking.png";
 import Link from "next/link";
+import { Alert, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 // const outerTheme = createTheme({
 //   typography:{
@@ -51,6 +53,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           setIsUserIsSubscribed(true);
           setShowPopupForm(false);
           setSuccessAlert(true);
+          setTimeout(() => {
+            setSuccessAlert(false);
+          }, 3000);
         } else {
           localStorage.setItem("isUserIsSubscribed", JSON.stringify(false));
           setIsUserIsSubscribed(false);
@@ -93,10 +98,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       setShowPopupForm(true);
     }, 3000);
   }, []);
-
-  useEffect(() => {
-    console.log("isUserIsSubscribed", { isUserIsSubscribed, showPopupForm });
-  }, [isUserIsSubscribed, showPopupForm]);
 
   return (
     <>
@@ -150,30 +151,24 @@ window.dataLayer = window.dataLayer || [];
               />
             ) : null}
             {successAlert && (
-              <div>
-                <div
-                  className="dropbox"
-                  onClick={(e: any) => {
-                    e.preventDefault();
-                    setSuccessAlert(false);
-                  }}
-                ></div>
-                <div className="succes-card">
-                  <span
-                    className="close-btn"
-                    onClick={(e: any) => {
-                      e.preventDefault();
+              <Alert
+                className="success-login-popup"
+                severity="success"
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
                       setSuccessAlert(false);
                     }}
                   >
-                    &times;
-                  </span>
-                  <img src={SuccessBookingPng.src} alt="succes booking" />
-                  <h4>Thanks for sharing details!</h4>
-                  <p>Our team will contact you shortly.</p>
-                  <Link href="/car-collection">Browse Car</Link>
-                </div>
-              </div>
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }
+              >
+                Thanks for sharing details - Our team will contact you shortly.
+              </Alert>
             )}
           </Layout>
         </AuthContext.Provider>

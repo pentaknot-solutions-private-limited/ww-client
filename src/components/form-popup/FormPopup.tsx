@@ -33,7 +33,6 @@ const FormPopup = React.forwardRef(
     });
 
     const handleOnSubmit = (e: any) => {
-      console.log(e);
       setLoading(true);
       props?.contactUsLead(e, () => {
         reset({

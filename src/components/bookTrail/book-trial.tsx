@@ -77,7 +77,6 @@ export default function BookTrail({ carData, maxPriceValue }: any) {
 
   async function _submitForm(values: any, actions: any) {
     const { makeOffer, address1, address2, trailDate, city, pincode } = values;
-    console.log(values);
     setBookTrial({
       userId: userJwtData(),
       carId: carData[0]._id,
@@ -144,7 +143,6 @@ export default function BookTrail({ carData, maxPriceValue }: any) {
     try {
       const bookTrailApiCall = await carService.bookTrial(payload);
       if (!bookTrailApiCall.data.error) {
-        console.log(bookTrailApiCall.data.data);
         setActiveStep(activeStep + 1);
         setLoading(false);
       } else {
@@ -154,7 +152,6 @@ export default function BookTrail({ carData, maxPriceValue }: any) {
       }
     } catch (error: any) {
       let errorResponse = JSON.parse(error?.request?.response);
-      console.log(errorResponse?.message);
       setBookingError(errorResponse?.message);
       setLoading(false);
     }
@@ -176,14 +173,6 @@ export default function BookTrail({ carData, maxPriceValue }: any) {
       _bookTrail(bookTrial);
     }
   }, [bookTrial]);
-
-  useEffect(() => {
-    // if (carData) {
-    //   console.log(carData);
-    //   // BookTrailInitialValues["makeOffer"] = "This is string";
-    //   BookTrailInitialValues["makeOffer"] =
-    // }
-  }, [carData]);
 
   return (
     <section className="book-trail">

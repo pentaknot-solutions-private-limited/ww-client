@@ -28,7 +28,6 @@ export default function CarDetailForm(props: any) {
     const brandListApiCall = brandService?.getAllBrandList();
     brandListApiCall.then((res: any) => {
       if (!res?.data?.error) {
-        console.log(res?.data?.data);
         setBrandList(res?.data?.data);
       }
     });
@@ -38,7 +37,6 @@ export default function CarDetailForm(props: any) {
     const stateListApiCall = cityService?.getAllStates();
     stateListApiCall.then((res: any) => {
       if (!res?.data?.error) {
-        console.log(res?.data?.data);
         setStateList(res?.data?.data);
       }
     });
