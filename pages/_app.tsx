@@ -6,6 +6,7 @@ import Layout from "../src/layout";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import theme from "../src/theme";
 import AuthContext from "../src/context/AuthContext";
+import ContactFormContext from "../src/context/ContactFormContext";
 import React, { useEffect, useState } from "react";
 import useIsIOS from "../src/hooks/useIsIos";
 import InstallPWAModel from "../src/hooks/installPWA";
@@ -99,6 +100,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     }, 3000);
   }, []);
 
+  // useEffect(() => {
+  //   if (showPopupForm) {
+  //     setIsUserIsSubscribed(false);
+  //   }
+  // }, [showPopupForm]);
+
   return (
     <>
       <Script
@@ -115,62 +122,72 @@ window.dataLayer = window.dataLayer || [];
       </Script>
       <ThemeProvider theme={theme}>
         <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
-          <Layout>
-            <Component {...pageProps} />
-            {isIos && (
-              <div
-                // className="add-to-home-screen"
-                className={
-                  !hidePopup ? "add-to-home-screen" : "add-to-home-screen hide"
-                }
-              >
-                <button
-                  onClick={() => setOpenModel(true)}
-                  className="btn-secondary"
+          <ContactFormContext.Provider
+            value={{ showPopupForm, setShowPopupForm }}
+          >
+            <Layout>
+              <Component {...pageProps} />
+              {isIos && (
+                <div
+                  // className="add-to-home-screen"
+                  className={
+                    !hidePopup
+                      ? "add-to-home-screen"
+                      : "add-to-home-screen hide"
+                  }
                 >
-                  Add to Home Screen
-                </button>
-                <span
-                  className="closebtn"
-                  onClick={(e: any) => {
-                    e.preventDefault();
-                    localStorage.setItem("installPrompt", JSON.stringify(true));
-                    hide();
-                  }}
-                >
-                  &times;
-                </span>
-                <InstallPWAModel open={openModel} setOpen={setOpenModel} />
-              </div>
-            )}
-            {!isUserIsSubscribed && showPopupForm ? (
-              <FormPopup
-                contactUsLead={_contactUsLead}
-                showPopupForm={showPopupForm}
-                setShowPopupForm={setShowPopupForm}
-              />
-            ) : null}
-            {successAlert && (
-              <Alert
-                className="success-login-popup"
-                severity="success"
-                action={
-                  <IconButton
-                    aria-label="close"
-                    color="inherit"
-                    size="small"
-                    onClick={() => {
-                      setSuccessAlert(false);
+                  <button
+                    onClick={() => setOpenModel(true)}
+                    className="btn-secondary"
+                  >
+                    Add to Home Screen
+                  </button>
+                  <span
+                    className="closebtn"
+                    onClick={(e: any) => {
+                      e.preventDefault();
+                      localStorage.setItem(
+                        "installPrompt",
+                        JSON.stringify(true)
+                      );
+                      hide();
                     }}
                   >
-                    <CloseIcon fontSize="inherit" />
-                  </IconButton>
-                }
-              >
-                Thanks for sharing details - Our team will contact you shortly.
-              </Alert>
-            )}
-          </Layout>
+                    &times;
+                  </span>
+                  <InstallPWAModel open={openModel} setOpen={setOpenModel} />
+                </div>
+              )}
+              {!isUserIsSubscribed && showPopupForm ? (
+                <FormPopup
+                  contactUsLead={_contactUsLead}
+                  showPopupForm={showPopupForm}
+                  setShowPopupForm={setShowPopupForm}
+                />
+              ) : null}
+              {successAlert && (
+                <Alert
+                  className="success-login-popup"
+                  severity="success"
+                  action={
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                      onClick={() => {
+                        setSuccessAlert(false);
+                      }}
+                    >
+                      <CloseIcon fontSize="inherit" />
+                    </IconButton>
+                  }
+                >
+                  Thanks for sharing details - Our team will contact you
+                  shortly.
+                </Alert>
+              )}
+            </Layout>
+          </ContactFormContext.Provider>
         </AuthContext.Provider>
       </ThemeProvider>
     </>

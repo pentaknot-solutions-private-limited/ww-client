@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CarDetailComponent from "../src/components/carDetail/car-detail-component";
 import Head from "next/head";
 import { CarService } from "../src/services/cars/carService";
 import { useRouter } from "next/router";
+import phoneIcon from "../public/phone-site-color.svg";
+import ContactFormContext from "../src/context/ContactFormContext";
 
 export default function CarDetail() {
   // States
   const [carDetail, setCarDetail] = useState<any[]>([]);
+  // context
+  const { showPopupForm, setShowPopupForm } = useContext(ContactFormContext);
 
   // Variables
   const carDetailService = new CarService();
@@ -38,6 +42,16 @@ export default function CarDetail() {
         <title>Wish Wheels | Car Detail</title>
       </Head>
       <CarDetailComponent carData={carDetail} />
+      <a
+        className="sharebtn phone-btn"
+        href="javascript:void(0)"
+        rel="noopener noreferrer"
+        onClick={() => {
+          setShowPopupForm(!showPopupForm);
+        }}
+      >
+        <img src={phoneIcon.src} />
+      </a>
     </div>
   );
 }

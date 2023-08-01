@@ -30,19 +30,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mui_material_styles__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8204);
 /* harmony import */ var _src_context_AuthContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(39);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _src_hooks_installPWA__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8854);
-/* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4780);
-/* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_script__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9358);
-/* harmony import */ var _src_services_contact_us__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(5844);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5692);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_mui_material__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(4173);
-/* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_11__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_8__]);
-_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_8__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _src_context_ContactFormContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8579);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _src_hooks_installPWA__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8854);
+/* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(4780);
+/* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_script__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(9358);
+/* harmony import */ var _src_services_contact_us__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5844);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(5692);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_mui_material__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(4173);
+/* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_12__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_9__]);
+_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_9__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
 
 
 
@@ -64,18 +66,18 @@ _src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_8__ = (__webpack_a
 //   }
 // });
 function MyApp({ Component , pageProps  }) {
-    const { 0: authenticated , 1: setAuthenticated  } = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false);
-    const { 0: isIos , 1: setIsIos  } = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(true);
-    const { 0: hidePopup , 1: setHidePopup  } = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false);
-    const { 0: openModel , 1: setOpenModel  } = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false);
-    const { 0: isUserIsSubscribed , 1: setIsUserIsSubscribed  } = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false);
-    const { 0: showPopupForm , 1: setShowPopupForm  } = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false);
-    const { 0: successAlert , 1: setSuccessAlert  } = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false);
+    const { 0: authenticated , 1: setAuthenticated  } = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false);
+    const { 0: isIos , 1: setIsIos  } = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(true);
+    const { 0: hidePopup , 1: setHidePopup  } = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false);
+    const { 0: openModel , 1: setOpenModel  } = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false);
+    const { 0: isUserIsSubscribed , 1: setIsUserIsSubscribed  } = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false);
+    const { 0: showPopupForm , 1: setShowPopupForm  } = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false);
+    const { 0: successAlert , 1: setSuccessAlert  } = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false);
     // Variables
     const hide = ()=>{
         setHidePopup(true);
     };
-    const contactUsLeadService = new _src_services_contact_us__WEBPACK_IMPORTED_MODULE_9__/* .ContactUsLeadService */ .w();
+    const contactUsLeadService = new _src_services_contact_us__WEBPACK_IMPORTED_MODULE_10__/* .ContactUsLeadService */ .w();
     const _contactUsLead = (payload, callBack)=>{
         const faqData = contactUsLeadService.ContactUsLead(payload);
         faqData.then((res)=>{
@@ -104,7 +106,7 @@ function MyApp({ Component , pageProps  }) {
         });
     };
     // Effects
-    (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(()=>{
+    (0,react__WEBPACK_IMPORTED_MODULE_6__.useEffect)(()=>{
         let userIsSubscribed = JSON.parse(localStorage.getItem("isUserIsSubscribed"));
         userIsSubscribed ? setIsUserIsSubscribed(true) : setIsUserIsSubscribed(false);
         let installed;
@@ -120,13 +122,18 @@ function MyApp({ Component , pageProps  }) {
             setShowPopupForm(true);
         }, 3000);
     }, []);
+    // useEffect(() => {
+    //   if (showPopupForm) {
+    //     setIsUserIsSubscribed(false);
+    //   }
+    // }, [showPopupForm]);
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_7___default()), {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_8___default()), {
                 strategy: "lazyOnload",
                 src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_7___default()), {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_8___default()), {
                 id: "googleAnalytic",
                 strategy: "lazyOnload",
                 children: `
@@ -143,58 +150,64 @@ window.dataLayer = window.dataLayer || [];
                         authenticated,
                         setAuthenticated
                     },
-                    children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_src_layout__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
-                                ...pageProps
-                            }),
-                            isIos && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                // className="add-to-home-screen"
-                                className: !hidePopup ? "add-to-home-screen" : "add-to-home-screen hide",
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                        onClick: ()=>setOpenModel(true)
-                                        ,
-                                        className: "btn-secondary",
-                                        children: "Add to Home Screen"
-                                    }),
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
-                                        className: "closebtn",
-                                        onClick: (e)=>{
-                                            e.preventDefault();
-                                            localStorage.setItem("installPrompt", JSON.stringify(true));
-                                            hide();
-                                        },
-                                        children: "\xd7"
-                                    }),
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_hooks_installPWA__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
-                                        open: openModel,
-                                        setOpen: setOpenModel
-                                    })
-                                ]
-                            }),
-                            !isUserIsSubscribed && showPopupForm ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, {
-                                contactUsLead: _contactUsLead,
-                                showPopupForm: showPopupForm,
-                                setShowPopupForm: setShowPopupForm
-                            }) : null,
-                            successAlert && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_10__.Alert, {
-                                className: "success-login-popup",
-                                severity: "success",
-                                action: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_10__.IconButton, {
-                                    "aria-label": "close",
-                                    color: "inherit",
-                                    size: "small",
-                                    onClick: ()=>{
-                                        setSuccessAlert(false);
-                                    },
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_11___default()), {
-                                        fontSize: "inherit"
-                                    })
+                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_context_ContactFormContext__WEBPACK_IMPORTED_MODULE_5__/* ["default"].Provider */ .Z.Provider, {
+                        value: {
+                            showPopupForm,
+                            setShowPopupForm
+                        },
+                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_src_layout__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
+                            children: [
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
+                                    ...pageProps
                                 }),
-                                children: "Thanks for sharing details - Our team will contact you shortly."
-                            })
-                        ]
+                                isIos && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                    // className="add-to-home-screen"
+                                    className: !hidePopup ? "add-to-home-screen" : "add-to-home-screen hide",
+                                    children: [
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                                            onClick: ()=>setOpenModel(true)
+                                            ,
+                                            className: "btn-secondary",
+                                            children: "Add to Home Screen"
+                                        }),
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                            className: "closebtn",
+                                            onClick: (e)=>{
+                                                e.preventDefault();
+                                                localStorage.setItem("installPrompt", JSON.stringify(true));
+                                                hide();
+                                            },
+                                            children: "\xd7"
+                                        }),
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_hooks_installPWA__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
+                                            open: openModel,
+                                            setOpen: setOpenModel
+                                        })
+                                    ]
+                                }),
+                                !isUserIsSubscribed && showPopupForm ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
+                                    contactUsLead: _contactUsLead,
+                                    showPopupForm: showPopupForm,
+                                    setShowPopupForm: setShowPopupForm
+                                }) : null,
+                                successAlert && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_11__.Alert, {
+                                    className: "success-login-popup",
+                                    severity: "success",
+                                    action: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_11__.IconButton, {
+                                        "aria-label": "close",
+                                        color: "inherit",
+                                        size: "small",
+                                        onClick: ()=>{
+                                            setSuccessAlert(false);
+                                        },
+                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_12___default()), {
+                                            fontSize: "inherit"
+                                        })
+                                    }),
+                                    children: "Thanks for sharing details - Our team will contact you shortly."
+                                })
+                            ]
+                        })
                     })
                 })
             })
@@ -426,6 +439,24 @@ const AuthContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.createCo
     setAuthenticated: (auth)=>{}
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AuthContext);
+
+
+/***/ }),
+
+/***/ 8579:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const ContactFormContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)({
+    showPopupForm: false,
+    setShowPopupForm: (isActive)=>{}
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ContactFormContext);
 
 
 /***/ }),
