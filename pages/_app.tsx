@@ -108,17 +108,33 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Script
+      {/* <Script
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-      />
-      <Script id="googleAnalytic" strategy="lazyOnload">
+      /> */}
+
+      {/* <Script id="googleAnalytic" strategy="lazyOnload">
         {`
 window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-SM7H9X2PXT');
                 `}
+                
+      </Script> */}
+      {/* Google tag (gtag.js) */}
+      <Script
+        strategy="lazyOnload"
+        src="https://www.googletagmanager.com/gtag/js?id=AW-11087489843"
+      ></Script>
+      <Script strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'AW-11087489843');
+        `}
       </Script>
       <ThemeProvider theme={theme}>
         <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
