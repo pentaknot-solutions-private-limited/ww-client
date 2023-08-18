@@ -13,6 +13,10 @@ export class CarService {
   async getAllBrands() {
     return axios.get(`${APIURL}/carMake`);
   }
+  async getAllCarBodies() {
+    return axios.get(`${APIURL}/carBody`);
+    // return axios.get(`http://localhost:8081/api/carBody`);
+  }
 
   sellCar(payload: any) {
     return axiosInstance.post(`/sellCar`, payload);
@@ -22,7 +26,12 @@ export class CarService {
     return axiosInstance.post(`/trial`, payload);
   }
 
-  getInpectionsById(payload:any){
-    return axiosInstance.get(`/sellCar/getBy/UserId/${payload}`)
+  getInpectionsById(payload: any) {
+    return axiosInstance.get(`/sellCar/getBy/UserId/${payload}`);
+  }
+
+  getAllFuelType() {
+    // return axios.get(`../../../public/json/data/fule-type.json`);
+    return axios.get("/json/data/fule-type.json");
   }
 }

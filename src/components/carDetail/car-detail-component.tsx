@@ -28,6 +28,7 @@ import FuelDark from "../../../public/fuel-dark.svg";
 import Spray from "../../../public/spray.svg";
 import GaugeDark from "../../../public/gauge-dark.svg";
 import Setting from "../../../public/setting.svg";
+import ContactUs from "../../../pages/contact-us";
 
 export default function CarDetailComponent({ carData }: any) {
   // States
@@ -218,6 +219,7 @@ export default function CarDetailComponent({ carData }: any) {
             </Grid>
           </Grid>
         </Container>
+        <ContactUs />
       </div>
 
       <MakeOfferCta carId={carId} carData={carDetail} />

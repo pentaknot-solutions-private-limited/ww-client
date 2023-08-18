@@ -301,6 +301,17 @@ export default function Navbar() {
             : "site-header"
         }
       >
+        <div className="secondary-header">
+          <Container
+            maxWidth="lg"
+            sx={{ display: "flex", justifyContent: "end" }}
+          >
+            <div className="contact-us-number">
+              <span>Call Us:</span>
+              <a href="tel:+91-9967164485">+91-9967164485</a>
+            </div>
+          </Container>
+        </div>
         <Container maxWidth="lg">
           <div className="site-header-wrapper">
             <Link href="/">

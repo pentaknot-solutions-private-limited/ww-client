@@ -171,7 +171,7 @@ window.dataLayer = window.dataLayer || [];
                   <InstallPWAModel open={openModel} setOpen={setOpenModel} />
                 </div>
               )}
-              {!isUserIsSubscribed && showPopupForm ? (
+              {(!isUserIsSubscribed && showPopupForm) || showPopupForm ? (
                 <FormPopup
                   contactUsLead={_contactUsLead}
                   showPopupForm={showPopupForm}
@@ -179,25 +179,34 @@ window.dataLayer = window.dataLayer || [];
                 />
               ) : null}
               {successAlert && (
-                <Alert
-                  className="success-login-popup"
-                  severity="success"
-                  action={
-                    <IconButton
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        setSuccessAlert(false);
-                      }}
-                    >
-                      <CloseIcon fontSize="inherit" />
-                    </IconButton>
-                  }
-                >
-                  Thanks for sharing details - Our team will contact you
-                  shortly.
-                </Alert>
+                // <Alert
+                //   className="success-login-popup"
+                //   severity="success"
+                //   action={
+                //     <IconButton
+                //       aria-label="close"
+                //       color="inherit"
+                //       size="small"
+                //       onClick={() => {
+                //         setSuccessAlert(false);
+                //       }}
+                //     >
+                //       <CloseIcon fontSize="inherit" />
+                //     </IconButton>
+                //   }
+                // >
+                //   Thanks for sharing details - Our team will contact you
+                //   shortly.
+                // </Alert>
+                <div>
+                  <div className="dropbox"></div>
+                  <div className="succes-card">
+                    <img src={SuccessBookingPng.src} alt="succes booking" />
+                    <h4>Thanks for sharing details</h4>
+                    <p>Our team will contact you shortly.</p>
+                    <Link href="/">Home</Link>
+                  </div>
+                </div>
               )}
             </Layout>
           </ContactFormContext.Provider>

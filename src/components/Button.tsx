@@ -27,6 +27,9 @@ const StyledButton = styled(Button)`
   @media (max-width: 567px) {
     padding: 5px 15px !important;
   }
+  &.mr0 {
+    margin-right: 0px !important;
+  }
 `;
 
 interface SiteButtonTypes {
@@ -37,6 +40,7 @@ interface SiteButtonTypes {
   styles?: any;
   disabled?: boolean;
   type?: any;
+  className?: any;
 }
 
 export default function SiteButton({
@@ -47,6 +51,7 @@ export default function SiteButton({
   styles,
   disabled,
   type,
+  className,
 }: SiteButtonTypes) {
   return (
     <StyledButton
@@ -54,12 +59,12 @@ export default function SiteButton({
       type={type}
       className={
         buttonVariant == null || buttonVariant == "primary"
-          ? "primary-btn"
+          ? `primary-btn ${className}`
           : buttonVariant == "secondary"
-          ? "secondary-btn"
+          ? `secondary-btn ${className}`
           : buttonVariant == "tertiary"
-          ? "tertiary-btn"
-          : ""
+          ? `tertiary-btn ${className}`
+          : `${className}`
       }
       onClick={onClick}
       sx={styles}

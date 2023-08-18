@@ -55,12 +55,15 @@ const StyledButton = (0,system_.styled)(material_.Button)`
   @media (max-width: 567px) {
     padding: 5px 15px !important;
   }
+  &.mr0 {
+    margin-right: 0px !important;
+  }
 `;
-function SiteButton({ text , arrow , onClick , buttonVariant , styles , disabled , type  }) {
+function SiteButton({ text , arrow , onClick , buttonVariant , styles , disabled , type , className  }) {
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(StyledButton, {
         disabled: disabled,
         type: type,
-        className: buttonVariant == null || buttonVariant == "primary" ? "primary-btn" : buttonVariant == "secondary" ? "secondary-btn" : buttonVariant == "tertiary" ? "tertiary-btn" : "",
+        className: buttonVariant == null || buttonVariant == "primary" ? `primary-btn ${className}` : buttonVariant == "secondary" ? `secondary-btn ${className}` : buttonVariant == "tertiary" ? `tertiary-btn ${className}` : `${className}`,
         onClick: onClick,
         sx: styles,
         children: [

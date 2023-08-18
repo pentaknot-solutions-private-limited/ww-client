@@ -39,6 +39,10 @@ class CarService {
     async getAllBrands() {
         return axios__WEBPACK_IMPORTED_MODULE_0___default().get(`${_config_apiConfig__WEBPACK_IMPORTED_MODULE_2__/* .APIURL */ .z}/carMake`);
     }
+    async getAllCarBodies() {
+        return axios__WEBPACK_IMPORTED_MODULE_0___default().get(`${_config_apiConfig__WEBPACK_IMPORTED_MODULE_2__/* .APIURL */ .z}/carBody`);
+    // return axios.get(`http://localhost:8081/api/carBody`);
+    }
     sellCar(payload) {
         return _utils_axiosInstance__WEBPACK_IMPORTED_MODULE_1__/* ["default"].post */ .Z.post(`/sellCar`, payload);
     }
@@ -47,6 +51,10 @@ class CarService {
     }
     getInpectionsById(payload) {
         return _utils_axiosInstance__WEBPACK_IMPORTED_MODULE_1__/* ["default"].get */ .Z.get(`/sellCar/getBy/UserId/${payload}`);
+    }
+    getAllFuelType() {
+        // return axios.get(`../../../public/json/data/fule-type.json`);
+        return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/json/data/fule-type.json");
     }
 }
 

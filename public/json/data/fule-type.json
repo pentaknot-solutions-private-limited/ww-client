@@ -1,0 +1,10 @@
+{
+  "status": 200,
+  "message": "Fuel Type Found Successfully",
+  "error": null,
+  "data": [
+    { "value": "petrol", "name": "Petrol" },
+    { "value": "diesel", "name": "Diesel" },
+    { "value": "electric", "name": "Electric" }
+  ]
+}

@@ -62,7 +62,18 @@ export default function MakeOfferCta({ carId, carData }: any) {
           </div>
           <div className="car-price-detail">
             <h4 className="car-price">
-              {currencyFormatter(carData && carData?.maxPrice) || "-"}
+              {currencyFormatter(carData && carData?.maxPrice) || (
+                <SiteButton
+                  buttonVariant={"secondary"}
+                  onClick={() => {
+                    const phoneNumber = "+91-9967164485";
+                    const telUri = "tel:" + phoneNumber;
+
+                    window.location.href = telUri;
+                  }}
+                  text={"Ask Price"}
+                />
+              )}
             </h4>
             <SiteButton text="Make Offer" arrow={true} onClick={makeOffer} />
           </div>

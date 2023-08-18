@@ -2,7 +2,7 @@
 (() => {
 var exports = {};
 exports.id = 888;
-exports.ids = [888];
+exports.ids = [888,455];
 exports.modules = {
 
 /***/ 819:
@@ -25,7 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6507);
+/* harmony import */ var _src_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8996);
 /* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8442);
 /* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mui_material_styles__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8204);
@@ -38,10 +38,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_script__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(9358);
 /* harmony import */ var _src_services_contact_us__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5844);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(5692);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_mui_material__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(4173);
-/* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _public_success_booking_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(4404);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(1664);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_12__);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_9__]);
 _src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_9__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
@@ -184,26 +183,55 @@ function MyApp({ Component , pageProps  }) {
                                         })
                                     ]
                                 }),
-                                !isUserIsSubscribed && showPopupForm ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
+                                !isUserIsSubscribed && showPopupForm || showPopupForm ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_form_popup_FormPopup__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
                                     contactUsLead: _contactUsLead,
                                     showPopupForm: showPopupForm,
                                     setShowPopupForm: setShowPopupForm
                                 }) : null,
-                                successAlert && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_11__.Alert, {
-                                    className: "success-login-popup",
-                                    severity: "success",
-                                    action: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_11__.IconButton, {
-                                        "aria-label": "close",
-                                        color: "inherit",
-                                        size: "small",
-                                        onClick: ()=>{
-                                            setSuccessAlert(false);
-                                        },
-                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_12___default()), {
-                                            fontSize: "inherit"
+                                successAlert && // <Alert
+                                //   className="success-login-popup"
+                                //   severity="success"
+                                //   action={
+                                //     <IconButton
+                                //       aria-label="close"
+                                //       color="inherit"
+                                //       size="small"
+                                //       onClick={() => {
+                                //         setSuccessAlert(false);
+                                //       }}
+                                //     >
+                                //       <CloseIcon fontSize="inherit" />
+                                //     </IconButton>
+                                //   }
+                                // >
+                                //   Thanks for sharing details - Our team will contact you
+                                //   shortly.
+                                // </Alert>
+                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                    children: [
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                            className: "dropbox"
+                                        }),
+                                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                            className: "succes-card",
+                                            children: [
+                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                                                    src: _public_success_booking_png__WEBPACK_IMPORTED_MODULE_11__/* ["default"].src */ .Z.src,
+                                                    alt: "succes booking"
+                                                }),
+                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
+                                                    children: "Thanks for sharing details"
+                                                }),
+                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                                    children: "Our team will contact you shortly."
+                                                }),
+                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_12___default()), {
+                                                    href: "/",
+                                                    children: "Home"
+                                                })
+                                            ]
                                         })
-                                    }),
-                                    children: "Thanks for sharing details - Our team will contact you shortly."
+                                    ]
                                 })
                             ]
                         })
@@ -552,7 +580,7 @@ function InstallPWAModel({ open , setOpen  }) {
 
 /***/ }),
 
-/***/ 6507:
+/***/ 8996:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -1166,9 +1194,9 @@ function useLocalStorage(key, initialValue) {
 
 // EXTERNAL MODULE: ./src/context/AuthContext.js
 var AuthContext = __webpack_require__(39);
-// EXTERNAL MODULE: external "@mui/icons-material/Close"
-var Close_ = __webpack_require__(4173);
-var Close_default = /*#__PURE__*/__webpack_require__.n(Close_);
+;// CONCATENATED MODULE: external "@mui/icons-material/Close"
+const Close_namespaceObject = require("@mui/icons-material/Close");
+var Close_default = /*#__PURE__*/__webpack_require__.n(Close_namespaceObject);
 ;// CONCATENATED MODULE: ./src/components/Navbar/navbar.tsx
 
 /* eslint-disable react-hooks/exhaustive-deps */ 
@@ -1419,154 +1447,178 @@ function Navbar() {
                 }),
                 children: "You have successfully logged."
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx("header", {
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("header", {
                 id: "header",
                 className: navbarScroll ? "site-header is-active" : router.pathname == "/404" ? "site-header fixed" : "site-header",
-                children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Container, {
-                    maxWidth: "lg",
-                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: "site-header-wrapper",
-                        children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                                href: "/",
-                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("a", {
-                                    className: "site-brand",
-                                    children: [
-                                        /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                                            src: wishwheels_logo/* default.src */.Z.src,
-                                            alt: "siteLogo",
-                                            width: 50,
-                                            height: 50
-                                        }),
-                                        /*#__PURE__*/ jsx_runtime_.jsx("h1", {
-                                            children: "Wish Wheels"
-                                        })
-                                    ]
-                                })
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                className: "flex-box",
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: "secondary-header",
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Container, {
+                            maxWidth: "lg",
+                            sx: {
+                                display: "flex",
+                                justifyContent: "end"
+                            },
+                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                className: "contact-us-number",
                                 children: [
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
-                                        className: isActive ? "btn-nav-toggler is-active" : "btn-nav-toggler",
-                                        onClick: handleSidebar,
-                                        children: [
-                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {}),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {}),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {})
-                                        ]
+                                    /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                        children: "Call Us:"
                                     }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                        className: isActive ? "header-links-wrapper is-active" : closeNavbar ? "header-links-wrapper close-navbar" : "header-links-wrapper",
-                                        children: /*#__PURE__*/ jsx_runtime_.jsx("nav", {
-                                            className: "site-nav",
-                                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("ul", {
-                                                className: "list-style-none",
-                                                children: [
-                                                    /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                                                        children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                                            onClick: sellcar,
-                                                            className: router.pathname == "/sell-car" ? "cursor-pointer is-active " : "cursor-pointer",
-                                                            children: "Sell Car"
-                                                        })
-                                                    }),
-                                                    /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                                                        children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                                            onClick: ()=>{
-                                                                router.push({
-                                                                    pathname: "/car-collection"
-                                                                });
-                                                                closeMenu();
-                                                            },
-                                                            className: router.pathname == "/car-collection" ? "cursor-pointer is-active" : "cursor-pointer",
-                                                            children: "Buy Car"
-                                                        })
-                                                    }),
-                                                    /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                                                        children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                                            onClick: ()=>{
-                                                                router.push({
-                                                                    pathname: "/faq"
-                                                                });
-                                                                closeMenu();
-                                                            },
-                                                            className: router.pathname == "/faq" ? "cursor-pointer is-active" : "cursor-pointer",
-                                                            children: "FAQ"
-                                                        })
-                                                    }),
-                                                    /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                                                        children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                                            onClick: ()=>{
-                                                                router.push({
-                                                                    pathname: "/about-us"
-                                                                });
-                                                                closeMenu();
-                                                            },
-                                                            className: router.pathname == "/about-us" ? "cursor-pointer is-active" : "cursor-pointer",
-                                                            children: "About Us"
-                                                        })
-                                                    }),
-                                                    /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                                                        children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                                            onClick: ()=>{
-                                                                router.push({
-                                                                    pathname: "/contact-us"
-                                                                });
-                                                                closeMenu();
-                                                            },
-                                                            className: router.pathname == "/contact-us" ? "cursor-pointer is-active" : "cursor-pointer",
-                                                            children: "Contact Us"
-                                                        })
-                                                    })
-                                                ]
-                                            })
-                                        })
-                                    }),
-                                    loggedIn && loggedIn ? /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Box, {
-                                        children: [
-                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.IconButton, {
-                                                onClick: accountMenuHandleClick,
-                                                children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Avatar, {
-                                                    className: "name-avatar",
-                                                    title: displayUserName(),
-                                                    alt: displayUserName(),
-                                                    src: "/broken-image.jpg"
-                                                })
-                                            }),
-                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Menu, {
-                                                id: "basic-menu",
-                                                anchorEl: anchorEl,
-                                                open: accountMenu,
-                                                onClose: accountMenuHandleClose,
-                                                MenuListProps: {
-                                                    "aria-labelledby": "basic-button"
-                                                },
-                                                children: [
-                                                    /*#__PURE__*/ jsx_runtime_.jsx(material_.MenuItem, {
-                                                        onClick: ()=>{
-                                                            router.push("/history");
-                                                            setAnchorEl(null);
-                                                        },
-                                                        children: "History"
-                                                    }),
-                                                    /*#__PURE__*/ jsx_runtime_.jsx(material_.MenuItem, {
-                                                        onClick: logoutHandle,
-                                                        children: "Logout"
-                                                    })
-                                                ]
-                                            })
-                                        ]
-                                    }) : /*#__PURE__*/ jsx_runtime_.jsx(material_.IconButton, {
-                                        onClick: handleOpen,
-                                        children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Avatar, {
-                                            src: "/broken-image.jpg"
-                                        })
+                                    /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                                        href: "tel:+91-9967164485",
+                                        children: "+91-9967164485"
                                     })
                                 ]
                             })
-                        ]
+                        })
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx(material_.Container, {
+                        maxWidth: "lg",
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: "site-header-wrapper",
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                                    href: "/",
+                                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("a", {
+                                        className: "site-brand",
+                                        children: [
+                                            /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                                src: wishwheels_logo/* default.src */.Z.src,
+                                                alt: "siteLogo",
+                                                width: 50,
+                                                height: 50
+                                            }),
+                                            /*#__PURE__*/ jsx_runtime_.jsx("h1", {
+                                                children: "Wish Wheels"
+                                            })
+                                        ]
+                                    })
+                                }),
+                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                    className: "flex-box",
+                                    children: [
+                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
+                                            className: isActive ? "btn-nav-toggler is-active" : "btn-nav-toggler",
+                                            onClick: handleSidebar,
+                                            children: [
+                                                /*#__PURE__*/ jsx_runtime_.jsx("span", {}),
+                                                /*#__PURE__*/ jsx_runtime_.jsx("span", {}),
+                                                /*#__PURE__*/ jsx_runtime_.jsx("span", {})
+                                            ]
+                                        }),
+                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                            className: isActive ? "header-links-wrapper is-active" : closeNavbar ? "header-links-wrapper close-navbar" : "header-links-wrapper",
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx("nav", {
+                                                className: "site-nav",
+                                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("ul", {
+                                                    className: "list-style-none",
+                                                    children: [
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                                                                onClick: sellcar,
+                                                                className: router.pathname == "/sell-car" ? "cursor-pointer is-active " : "cursor-pointer",
+                                                                children: "Sell Car"
+                                                            })
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                                                                onClick: ()=>{
+                                                                    router.push({
+                                                                        pathname: "/car-collection"
+                                                                    });
+                                                                    closeMenu();
+                                                                },
+                                                                className: router.pathname == "/car-collection" ? "cursor-pointer is-active" : "cursor-pointer",
+                                                                children: "Buy Car"
+                                                            })
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                                                                onClick: ()=>{
+                                                                    router.push({
+                                                                        pathname: "/faq"
+                                                                    });
+                                                                    closeMenu();
+                                                                },
+                                                                className: router.pathname == "/faq" ? "cursor-pointer is-active" : "cursor-pointer",
+                                                                children: "FAQ"
+                                                            })
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                                                                onClick: ()=>{
+                                                                    router.push({
+                                                                        pathname: "/about-us"
+                                                                    });
+                                                                    closeMenu();
+                                                                },
+                                                                className: router.pathname == "/about-us" ? "cursor-pointer is-active" : "cursor-pointer",
+                                                                children: "About Us"
+                                                            })
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                                                                onClick: ()=>{
+                                                                    router.push({
+                                                                        pathname: "/contact-us"
+                                                                    });
+                                                                    closeMenu();
+                                                                },
+                                                                className: router.pathname == "/contact-us" ? "cursor-pointer is-active" : "cursor-pointer",
+                                                                children: "Contact Us"
+                                                            })
+                                                        })
+                                                    ]
+                                                })
+                                            })
+                                        }),
+                                        loggedIn && loggedIn ? /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Box, {
+                                            children: [
+                                                /*#__PURE__*/ jsx_runtime_.jsx(material_.IconButton, {
+                                                    onClick: accountMenuHandleClick,
+                                                    children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Avatar, {
+                                                        className: "name-avatar",
+                                                        title: displayUserName(),
+                                                        alt: displayUserName(),
+                                                        src: "/broken-image.jpg"
+                                                    })
+                                                }),
+                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Menu, {
+                                                    id: "basic-menu",
+                                                    anchorEl: anchorEl,
+                                                    open: accountMenu,
+                                                    onClose: accountMenuHandleClose,
+                                                    MenuListProps: {
+                                                        "aria-labelledby": "basic-button"
+                                                    },
+                                                    children: [
+                                                        /*#__PURE__*/ jsx_runtime_.jsx(material_.MenuItem, {
+                                                            onClick: ()=>{
+                                                                router.push("/history");
+                                                                setAnchorEl(null);
+                                                            },
+                                                            children: "History"
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx(material_.MenuItem, {
+                                                            onClick: logoutHandle,
+                                                            children: "Logout"
+                                                        })
+                                                    ]
+                                                })
+                                            ]
+                                        }) : /*#__PURE__*/ jsx_runtime_.jsx(material_.IconButton, {
+                                            onClick: handleOpen,
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Avatar, {
+                                                src: "/broken-image.jpg"
+                                            })
+                                        })
+                                    ]
+                                })
+                            ]
+                        })
                     })
-                })
+                ]
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(material_.Modal, {
                 open: authenticated,
@@ -1671,13 +1723,6 @@ const theme = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_0__.createTheme)(
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (theme);
 
-
-/***/ }),
-
-/***/ 4173:
-/***/ ((module) => {
-
-module.exports = require("@mui/icons-material/Close");
 
 /***/ }),
 
@@ -1898,7 +1943,7 @@ module.exports = import("react-hook-form");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [686,675,676,664,189,210], () => (__webpack_exec__(3847)));
+var __webpack_exports__ = __webpack_require__.X(0, [686,675,676,664,189,831], () => (__webpack_exec__(3847)));
 module.exports = __webpack_exports__;
 
 })();

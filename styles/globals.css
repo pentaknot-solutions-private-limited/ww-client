@@ -349,7 +349,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 .site-main {
-  height: calc(100vh - 64px);
+  height: calc(100vh - 97px);
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
@@ -1273,17 +1273,21 @@ input[type="number"] {
 }
 .filter-list li:not(:last-child) {
   padding: 0 15px 0 0;
+
 }
 .filter-list li {
   display: inline-flex;
   position: relative;
   margin-right: 0;
+  margin-bottom: 10px;
+  
 }
 .filter-list input[type="radio"],
 .filter-list input[type="checkbox"] {
   width: 0px;
   height: 0px;
   position: absolute;
+  cursor: pointer;
 }
 .filter-list input[type="radio"]:checked + label,
 .filter-list input[type="checkbox"]:checked + label {
@@ -1299,6 +1303,7 @@ input[type="number"] {
   color: #272833;
   text-align: center;
   transition: 0.2s cubic-bezier(0.75, 0.25, 0.25, 0.75), color 0.2s ease;
+  cursor: pointer;
 }
 .filter-footer {
   position: absolute;
@@ -1971,7 +1976,7 @@ input:focus-visible {
     padding: 10px 0px 30px 0px;
   }
   .car-detail-container {
-    padding: 30px 0px 50px 0px;
+    padding: 30px 0px 80px 0px;
   }
   .make-offer-cta h5 {
     font-size: 24px;
@@ -2005,7 +2010,7 @@ input:focus-visible {
   }
   .header-links-wrapper {
     position: fixed;
-    top: 65px;
+    top: 97px;
     right: -100%;
     bottom: 0;
     padding: 40px;
@@ -2887,23 +2892,32 @@ input:focus-visible {
   display: inline-block;
   padding: 0;
   margin: 0;
-  position: fixed;
+  position: fixed !important;
   bottom: 5%;
   right: 3%;
   z-index: 99;
 }
 .phone-btn{
-  padding: 10px;
-  background-color: var(--primary-color);
-  border: 1px solid var(--secondary--color);
-  border-radius: 50%;
-  right: 20px;
-  
-  
+  padding: 10px !important;
+  /* background-color: var(--secondary--color);
+  color: var(--primary-color); */
+  left: 20px;
+  right: unset ;
+  max-width: 200px !important;
+  bottom: 20%;
+}
+.overflow-hidden .phone-btn{
+  display: none;
 }
 @media (max-width: 1200px ) {
   .phone-btn {
 bottom: 20%;
+  }
+}
+@media (max-width: 576px) {
+  .phone-btn {
+    bottom: 12%;
+    left: 15px;
   }
 }
 
@@ -3117,4 +3131,36 @@ animation-duration: 1s;
     .popup-form p {
       font-size: 18px;
     }
+}
+
+/* Secondary Header */
+.secondary-header{
+  background-color: var(--primary-color);
+  padding:  5px 0px;
+ 
+}
+
+.secondary-header .contact-us-number span,.secondary-header .contact-us-number a {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 14px;
+    color: var(--secondary--color);
+    font-family: var(--primary-fonts);
+}
+.secondary-header .contact-us-number span{
+  margin-right: 8px;
+}
+.secondary-header .contact-us-number a{
+  text-decoration: underline;
+}
+
+.no-cars-found{
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.no-cars-found p{
+  font-size: 34px;
+  font-weight: 500;
 }

@@ -6,6 +6,8 @@ import { CarService } from "../src/services/cars/carService";
 import { useRouter } from "next/router";
 import phoneIcon from "../public/phone-site-color.svg";
 import ContactFormContext from "../src/context/ContactFormContext";
+import SiteButton from "../src/components/Button";
+import ContactUs from "./contact-us";
 
 export default function CarDetail() {
   // States
@@ -42,16 +44,18 @@ export default function CarDetail() {
         <title>Wish Wheels | Car Detail</title>
       </Head>
       <CarDetailComponent carData={carDetail} />
-      <a
-        className="sharebtn phone-btn"
-        href="javascript:void(0)"
-        rel="noopener noreferrer"
+      <SiteButton
+        text={"Request A Callback"}
+        className="phone-btn sharebtn"
+        buttonVariant={"secondary"}
+        // href="javascript:void(0)"
+        // rel="noopener noreferrer"
         onClick={() => {
           setShowPopupForm(!showPopupForm);
         }}
-      >
-        <img src={phoneIcon.src} />
-      </a>
+      />
+      {/* <img src={phoneIcon.src} />
+      </SiteButton> */}
     </div>
   );
 }
