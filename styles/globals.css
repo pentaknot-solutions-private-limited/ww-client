@@ -2916,10 +2916,16 @@ bottom: 20%;
 }
 @media (max-width: 576px) {
   .phone-btn {
-    bottom: 12%;
+    bottom: 110px;
     left: 15px;
   }
 }
+/* @media (max-width: 385px) {
+  .phone-btn {
+    bottom: 20%;
+    left: 15px;
+  }
+} */
 
 .phone-btn img{
   max-width: 100%;
