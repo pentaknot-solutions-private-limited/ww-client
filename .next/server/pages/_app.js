@@ -129,6 +129,7 @@ function MyApp({ Component , pageProps  }) {
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_8___default()), {
+                async: true,
                 src: "https://www.googletagmanager.com/gtag/js?id=AW-11087489843"
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_8___default()), {
@@ -140,6 +141,13 @@ function MyApp({ Component , pageProps  }) {
 
           gtag('config', 'AW-11087489843');
         `
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_8___default()), {
+                children: `
+    gtag('config', 'AW-11087489843/UbnHCPH6tYMZELPW9qYp', {
+    'phone_conversion_number': '+91-9967164485'
+  });
+`
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material_styles__WEBPACK_IMPORTED_MODULE_2__.ThemeProvider, {
                 theme: _src_theme__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z,

@@ -19,6 +19,7 @@ import SuccessBookingPng from "../public/success-booking.png";
 import Link from "next/link";
 import { Alert, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import GoogleTagManager from "../src/scripts/GoogleTagManager";
 
 // const outerTheme = createTheme({
 //   typography:{
@@ -123,7 +124,10 @@ window.dataLayer = window.dataLayer || [];
                 
       </Script> */}
       {/* Google tag (gtag.js) */}
-      <Script src="https://www.googletagmanager.com/gtag/js?id=AW-11087489843"></Script>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-11087489843"
+      ></Script>
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -133,6 +137,15 @@ window.dataLayer = window.dataLayer || [];
           gtag('config', 'AW-11087489843');
         `}
       </Script>
+      <Script>
+        {`
+    gtag('config', 'AW-11087489843/UbnHCPH6tYMZELPW9qYp', {
+    'phone_conversion_number': '+91-9967164485'
+  });
+`}
+      </Script>
+
+      {/* <GoogleTagManager /> */}
       <ThemeProvider theme={theme}>
         <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
           <ContactFormContext.Provider
