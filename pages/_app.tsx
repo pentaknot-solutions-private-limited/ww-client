@@ -126,7 +126,7 @@ window.dataLayer = window.dataLayer || [];
       {/* Google tag (gtag.js) */}
       <Script
         async
-        src="https://www.googletagmanager.com/gtag/js?id=AW-11087489843"
+        src="https://www.googletagmanager.com/gtag/js?id=G-SM7H9X2PXT"
       ></Script>
       <Script id="google-analytics">
         {`
@@ -134,12 +134,12 @@ window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'AW-11087489843');
+          gtag('config', 'G-SM7H9X2PXT');
         `}
       </Script>
       <Script>
         {`
-    gtag('config', 'AW-11087489843/UbnHCPH6tYMZELPW9qYp', {
+    gtag('config', 'G-SM7H9X2PXT/UbnHCPH6tYMZELPW9qYp', {
     'phone_conversion_number': '+91-9967164485'
   });
 `}

@@ -130,7 +130,7 @@ function MyApp({ Component , pageProps  }) {
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_8___default()), {
                 async: true,
-                src: "https://www.googletagmanager.com/gtag/js?id=AW-11087489843"
+                src: "https://www.googletagmanager.com/gtag/js?id=G-SM7H9X2PXT"
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_8___default()), {
                 id: "google-analytics",
@@ -139,12 +139,12 @@ function MyApp({ Component , pageProps  }) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'AW-11087489843');
+          gtag('config', 'G-SM7H9X2PXT');
         `
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_script__WEBPACK_IMPORTED_MODULE_8___default()), {
                 children: `
-    gtag('config', 'AW-11087489843/UbnHCPH6tYMZELPW9qYp', {
+    gtag('config', 'G-SM7H9X2PXT/UbnHCPH6tYMZELPW9qYp', {
     'phone_conversion_number': '+91-9967164485'
   });
 `

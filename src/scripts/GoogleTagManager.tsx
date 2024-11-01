@@ -11,9 +11,9 @@ const GoogleTagManager = () => (
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtag/js?id=AW-11087489843'; 
+        'https://www.googletagmanager.com/gtag/js?id=G-SM7H9X2PXT'; 
         f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','AW-11087489843'); 
+        })(window,document,'script','dataLayer','G-SM7H9X2PXT'); 
       `}
     </Script>
 
@@ -23,7 +23,7 @@ const GoogleTagManager = () => (
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'AW-11087489843/UbnHCPH6tYMZELPW9qYp', {
+        gtag('config', 'G-SM7H9X2PXT/UbnHCPH6tYMZELPW9qYp', {
           'phone_conversion_number': '+91-9967164485'
         });
       `}
