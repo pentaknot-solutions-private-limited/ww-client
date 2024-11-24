@@ -121,7 +121,6 @@ export default function Navbar() {
         setSendOtp(null);
       }
     } catch (error: any) {
-      console.log(error);
       let errorResponse = JSON.parse(error?.request?.response);
       setAuthenticationError(errorResponse?.message);
       setLoading(false);
@@ -143,9 +142,7 @@ export default function Navbar() {
         setLoading(false);
       }
     } catch (error: any) {
-      console.log(error?.request);
       let errorResponse = JSON.parse(error?.request?.response);
-      console.log(errorResponse?.message);
       setAuthenticationError(errorResponse?.message);
       setLoading(false);
       setOptModal(false);
@@ -173,7 +170,6 @@ export default function Navbar() {
         setLoading(false);
       }
     } catch (error: any) {
-      console.log(error);
       let errorResponse = JSON.parse(error?.request?.response);
       setAuthenticationError(errorResponse?.message);
       setLoading(false);

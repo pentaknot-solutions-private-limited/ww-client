@@ -3200,3 +3200,10 @@ input:focus-visible {
   margin-left: 8px;
 }
 /* Site loader */
+
+.related-cars {
+  padding: 80px 0px 0px 0px;
+}
+.related-cars .page-title {
+  margin-bottom: 36px;
+}

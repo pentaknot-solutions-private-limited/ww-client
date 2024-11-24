@@ -72,12 +72,10 @@ export default function ContactUs() {
         setLoading(false);
         setSuccessAlert(true);
       } else {
-        console.log(contactUsApiCall.data.error);
         setContactUsError(contactUsApiCall.data.error);
         setLoading(false);
       }
     } catch (error: any) {
-      console.log(error);
       let errorResponse = JSON.parse(error?.request?.response);
       setContactUsError(errorResponse?.message);
       setLoading(false);

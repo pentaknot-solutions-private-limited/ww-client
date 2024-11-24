@@ -67,7 +67,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         callBack();
       })
       .catch((error: any) => {
-        console.log(error);
         callBack();
         localStorage.setItem("isUserIsSubscribed", JSON.stringify(false));
         setIsUserIsSubscribed(false);

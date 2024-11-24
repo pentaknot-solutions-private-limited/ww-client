@@ -41,7 +41,7 @@ export default function CarListing({ allCars, carListingLoading }: any) {
   const [bodyOptions, setBodyOptions] = useState<any[]>([]);
   const [brandList, setBrandList] = useState<any[]>([]);
   const [fuelTypeList, setFuelTypeList] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [filteredCars, setFilteredCars] = useState<any[]>([]);
   const [filters, setFilters] = useState<{
     bodyType: any[];
@@ -132,12 +132,9 @@ export default function CarListing({ allCars, carListingLoading }: any) {
     setFilters({ bodyType: [], brands: [], fuelType: "", priceSorting: "" });
   };
   const handleBodyTypeChange = (event: any, item: any) => {
-    console.log(event.target.checked);
     if (event.target.checked) {
       setFilters({ ...filters, bodyType: [...filters.bodyType, item] });
     } else {
-      console.log("this is else part", item);
-
       // remove from list
       setFilters({
         ...filters,
@@ -146,12 +143,9 @@ export default function CarListing({ allCars, carListingLoading }: any) {
     }
   };
   const handleBrandChange = (event: any, item: any) => {
-    console.log(event.target.checked);
     if (event.target.checked) {
       setFilters({ ...filters, brands: [...filters.brands, item] });
     } else {
-      console.log("this is else part", item);
-
       // remove from list
       setFilters({
         ...filters,
@@ -216,9 +210,6 @@ export default function CarListing({ allCars, carListingLoading }: any) {
   //       localStorage.setItem("filterRawData", JSON.stringify(rawData));
   //     }
   //   }, [rawData]);
-  useEffect(() => {
-    console.log(filters);
-  }, [filters]);
   return (
     <section className="car-listing">
       <Container maxWidth="lg">
@@ -334,7 +325,6 @@ export default function CarListing({ allCars, carListingLoading }: any) {
                         id={fuel?.value}
                         name="fuel-type"
                         onChange={(e) => {
-                          console.log(e);
                           setFilters({ ...filters, fuelType: fuel?.value });
                         }}
                         checked={filters.fuelType === fuel?.value}

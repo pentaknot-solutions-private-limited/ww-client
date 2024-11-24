@@ -12,7 +12,7 @@ import {
   ImageListItem,
 } from "@mui/material";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CarImage from "../../../public/car-img.png";
 import AccordionIcon from "../../../public/accordian-icon.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -29,12 +29,23 @@ import Spray from "../../../public/spray.svg";
 import GaugeDark from "../../../public/gauge-dark.svg";
 import Setting from "../../../public/setting.svg";
 import ContactUs from "../../../pages/contact-us";
+import { CarService } from "../../services/cars/carService";
+import styled from "@emotion/styled";
+import CarCards from "../carCards";
+import { log } from "console";
+
+const StyledGrid = styled(Grid)`
+  @media (max-width: 576px) {
+    justify-content: center !important;
+  }
+`;
 
 export default function CarDetailComponent({ carData }: any) {
   // States
   const [displayToggle, setDisplayToggle] = useState(false);
   const [expanded, setExpanded] = React.useState<string | false>("panel1");
   const [isOpen, setIsOpen] = useState(false);
+  const [relatedCars, setRelatedCars] = useState<any[]>([]);
 
   // Variables
   const carImage = carData && carData[0]?.Car_Images;
@@ -42,6 +53,7 @@ export default function CarDetailComponent({ carData }: any) {
   const carDetail = carData && carData[0]?.Car_Detail;
   const carAdditionalInfo =
     carData && carData[0]?.Car_Equipments[0].equipmentName;
+  const _carService = new CarService();
 
   const settings = {
     dots: false,
@@ -63,7 +75,28 @@ export default function CarDetailComponent({ carData }: any) {
     setDisplayToggle(!displayToggle);
   };
 
+  const _getAllCarList = (cardBody: string[]) => {
+    const allCarsList = _carService.getAllCollection();
+    allCarsList.then((res: any) => {
+      if (res.status == 200) {
+        const data = res.data.data
+          .filter((item: any) => {
+            return cardBody?.includes(item?.Car_Body?.bodyType);
+          })
+          ?.filter((item: any) => item?._id !== carData[0]?._id);
+        setRelatedCars(data?.slice(0, 6));
+      }
+    });
+  };
+
   // Effects
+
+  useEffect(() => {
+    let cardBody = [carData[0]?.Car_Body?.bodyType];
+    if (cardBody?.length) {
+      _getAllCarList(cardBody);
+    }
+  }, [carData]);
 
   return (
     <section className="car-detail">
@@ -219,9 +252,22 @@ export default function CarDetailComponent({ carData }: any) {
             </Grid>
           </Grid>
         </Container>
+        {relatedCars?.length && (
+          <Container maxWidth="lg">
+            <div className="related-cars">
+              <h3 className="page-title">Related Cars</h3>
+              <StyledGrid container rowSpacing={3} spacing={2}>
+                {relatedCars.map((car: any, index: number) => (
+                  <Grid key={index} item sm={6} md={4}>
+                    <CarCards {...car} />
+                  </Grid>
+                ))}
+              </StyledGrid>
+            </div>
+          </Container>
+        )}
         <ContactUs />
       </div>
-
       <MakeOfferCta carId={carId} carData={carDetail} />
     </section>
   );

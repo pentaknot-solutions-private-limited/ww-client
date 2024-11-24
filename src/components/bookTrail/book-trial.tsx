@@ -146,7 +146,6 @@ export default function BookTrail({ carData, maxPriceValue }: any) {
         setActiveStep(activeStep + 1);
         setLoading(false);
       } else {
-        console.log(bookTrailApiCall.data.error);
         setLoading(false);
         setBookingError(bookTrailApiCall.data.error);
       }

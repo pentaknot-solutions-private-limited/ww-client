@@ -167,7 +167,6 @@ export default function SellCarComponent() {
         setLoading(false);
       }
     } catch (error: any) {
-      console.log(error);
       let errorResponse = JSON.parse(error?.request?.response);
       setSellCarError(errorResponse?.message);
       setLoading(false);
