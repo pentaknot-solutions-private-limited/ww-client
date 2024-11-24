@@ -1273,14 +1273,12 @@ input[type="number"] {
 }
 .filter-list li:not(:last-child) {
   padding: 0 15px 0 0;
-
 }
 .filter-list li {
   display: inline-flex;
   position: relative;
   margin-right: 0;
   margin-bottom: 10px;
-  
 }
 .filter-list input[type="radio"],
 .filter-list input[type="checkbox"] {
@@ -2897,21 +2895,21 @@ input:focus-visible {
   right: 3%;
   z-index: 99;
 }
-.phone-btn{
+.phone-btn {
   padding: 10px !important;
   /* background-color: var(--secondary--color);
   color: var(--primary-color); */
   left: 20px;
-  right: unset ;
+  right: unset;
   max-width: 200px !important;
   bottom: 20%;
 }
-.overflow-hidden .phone-btn{
+.overflow-hidden .phone-btn {
   display: none;
 }
-@media (max-width: 1200px ) {
+@media (max-width: 1200px) {
   .phone-btn {
-bottom: 20%;
+    bottom: 20%;
   }
 }
 @media (max-width: 576px) {
@@ -2927,7 +2925,7 @@ bottom: 20%;
   }
 } */
 
-.phone-btn img{
+.phone-btn img {
   max-width: 100%;
   height: auto;
   width: 100%;
@@ -3080,20 +3078,20 @@ bottom: 20%;
   z-index: 99;
   border-radius: 50px;
 }
-.popup-form h4{
+.popup-form h4 {
   font-size: 48px;
   color: #fff;
   margin: 0px 0px 20px 0px;
   text-align: left;
 }
-.popup-form p{
+.popup-form p {
   font-size: 22px;
   color: #fff;
   font-weight: 300;
   margin: 0px 0px 30px 0px;
   text-align: left;
 }
-.popup-form .close-btn{
+.popup-form .close-btn {
   display: inline-block;
   position: absolute;
   top: 10px;
@@ -3105,10 +3103,10 @@ bottom: 20%;
   cursor: pointer;
   user-select: none;
 }
-.popup-form.fade-in{
- transition: .1s;
-animation-delay: 0s;
-animation-duration: 1s;
+.popup-form.fade-in {
+  transition: 0.1s;
+  animation-delay: 0s;
+  animation-duration: 1s;
 }
 .popup-form::before {
   content: "";
@@ -3123,50 +3121,82 @@ animation-duration: 1s;
 }
 
 @media (max-width: 950px) {
-.popup-form h4 {
+  .popup-form h4 {
     font-size: 38px;
   }
-    .popup-form p {
-      font-size: 20px;
-    }
+  .popup-form p {
+    font-size: 20px;
+  }
 }
 @media (max-width: 576px) {
-.popup-form h4 {
+  .popup-form h4 {
     font-size: 32px;
   }
-    .popup-form p {
-      font-size: 18px;
-    }
+  .popup-form p {
+    font-size: 18px;
+  }
 }
 
 /* Secondary Header */
-.secondary-header{
+.secondary-header {
   background-color: var(--primary-color);
-  padding:  5px 0px;
- 
+  padding: 5px 0px;
 }
 
-.secondary-header .contact-us-number span,.secondary-header .contact-us-number a {
+.secondary-header .contact-us-number span,
+.secondary-header .contact-us-number a {
   display: inline-block;
   font-weight: 500;
   font-size: 14px;
-    color: var(--secondary--color);
-    font-family: var(--primary-fonts);
+  color: var(--secondary--color);
+  font-family: var(--primary-fonts);
 }
-.secondary-header .contact-us-number span{
+.secondary-header .contact-us-number span {
   margin-right: 8px;
 }
-.secondary-header .contact-us-number a{
+.secondary-header .contact-us-number a {
   text-decoration: underline;
 }
 
-.no-cars-found{
+.no-cars-found {
   min-height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.no-cars-found p{
+.no-cars-found p {
   font-size: 34px;
   font-weight: 500;
 }
+
+.car-listing-loading-container {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Site loader */
+.site-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: rgba(0, 0, 0, 0.678); */
+}
+
+.site-loader .loader-card {
+  max-width: 200px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.site-loader .loading-text {
+  display: inline-block;
+  margin-left: 8px;
+}
+/* Site loader */

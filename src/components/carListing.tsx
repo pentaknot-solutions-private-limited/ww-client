@@ -19,6 +19,7 @@ import * as CONSTANTS from "../CONSTANTS";
 import { CarFilter } from "../services/cars/carFilter";
 import { CarService } from "../services/cars/carService";
 import { log } from "console";
+import LoadingComponent from "./loading/LoadingComponent";
 
 const StyledGrid = styled(Grid)`
   @media (max-width: 576px) {
@@ -33,14 +34,14 @@ const StyledDrawer = styled(Drawer)`
   }
 `;
 
-export default function CarListing({ allCars }: any) {
+export default function CarListing({ allCars, carListingLoading }: any) {
   // States
   const [open, setOpen] = useState(false);
 
   const [bodyOptions, setBodyOptions] = useState<any[]>([]);
   const [brandList, setBrandList] = useState<any[]>([]);
   const [fuelTypeList, setFuelTypeList] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [filteredCars, setFilteredCars] = useState<any[]>([]);
   const [filters, setFilters] = useState<{
     bodyType: any[];
@@ -363,90 +364,33 @@ export default function CarListing({ allCars }: any) {
                 text={isLoading ? "Loading..." : "Apply Changes"}
               />
             </div>
-            {/* <Formik
-              initialValues={filterInitialValue}
-              onSubmit={async (values) => {
-                handleSubmit(values);
-              }}
-            >
-              {(formik: any) => (
-                <Form>
-                  <div className="filter">
-                    <h5>Registration Year</h5>
-                    <ul className="filter-list">
-                      {registrationYearOptions &&
-                        registrationYearOptions.map((year, index) => (
-                          <li key={index}>
-                            <Field
-                              type="radio"
-                              value={JSON.stringify(year)}
-                              id={year?.label}
-                              name="registrationYear"
-                            />
-                            <label htmlFor={year?.label}>{year?.label}</label>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                  <div className="filter">
-                    <h5>KMS</h5>
-                    <ul className="filter-list">
-                      {kmsDrivenOptions &&
-                        kmsDrivenOptions.map((kms, index) => (
-                          <li key={index}>
-                            <Field
-                              type="radio"
-                              value={JSON.stringify(kms)}
-                              id={kms?.label}
-                              name="kmsDriven"
-                            />
-                            <label htmlFor={kms?.label}>{kms?.label}</label>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                  <div className="filter">
-                    <h5>Budget</h5>
-                    <ul className="filter-list">
-                      {budgetOptions &&
-                        budgetOptions.map((budget, index) => (
-                          <li key={index}>
-                            <Field
-                              type="radio"
-                              value={JSON.stringify(budget)}
-                              id={budget?.label}
-                              name="budget"
-                            />
-                            <label htmlFor={budget?.label}>
-                              {budget?.label}
-                            </label>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                  
-                </Form>
-              )}
-            </Formik> */}
           </div>
         </StyledDrawer>
-        {filteredCars?.length ? (
-          <StyledGrid container rowSpacing={3} spacing={2}>
-            {(!filters?.priceSorting
-              ? filteredCars?.sort(function (a: any, b: any) {
-                  return a.Car_Detail.carOrder - b.Car_Detail.carOrder;
-                })
-              : filteredCars
-            ).map((car: any, index: number) => (
-              <Grid key={index} item sm={6} lg={4}>
-                <CarCards {...car} variant="card2" />
-              </Grid>
-            ))}
-          </StyledGrid>
-        ) : (
-          <div className="no-cars-found">
-            <p>No Cars Found</p>
+        {carListingLoading ? (
+          <div className="car-listing-loading-container">
+            <LoadingComponent />
           </div>
+        ) : (
+          <>
+            {filteredCars?.length ? (
+              <StyledGrid container rowSpacing={3} spacing={2}>
+                {(!filters?.priceSorting
+                  ? filteredCars?.sort(function (a: any, b: any) {
+                      return a.Car_Detail.carOrder - b.Car_Detail.carOrder;
+                    })
+                  : filteredCars
+                ).map((car: any, index: number) => (
+                  <Grid key={index} item sm={6} lg={4}>
+                    <CarCards {...car} variant="card2" />
+                  </Grid>
+                ))}
+              </StyledGrid>
+            ) : (
+              <div className="no-cars-found">
+                <p>No Cars Found</p>
+              </div>
+            )}
+          </>
         )}
       </Container>
     </section>

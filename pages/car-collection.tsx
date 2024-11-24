@@ -16,6 +16,7 @@ export default function CarCollection() {
   // States
   const [cars, setCars] = useState<any[]>([]);
   const [url, setUrl] = useState<any>();
+  const [loading, setLoading] = useState<boolean>(true);
 
   // Variable
   const router = useRouter();
@@ -29,12 +30,14 @@ export default function CarCollection() {
   };
 
   const _getAllCarList = () => {
+    setLoading(true);
     const allCarsList = _carService.getAllCollection();
     allCarsList.then((res: any) => {
       if (res.status == 200) {
         const data = res.data.data;
         setCars(data);
       }
+      setLoading(false);
     });
   };
 
@@ -64,7 +67,7 @@ export default function CarCollection() {
         <title>Wish Wheels | Car Collection</title>
       </Head>
       {cars ? (
-        <CarListing allCars={cars} />
+        <CarListing allCars={cars} carListingLoading={loading} />
       ) : (
         <p className="no-data-available section-title">No Cars Available.</p>
       )}
