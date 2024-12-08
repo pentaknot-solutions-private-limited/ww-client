@@ -35,10 +35,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/car-detail": [
+    "/blogs": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/car-detail.js"
+      "static/chunks/pages/blogs.js"
+    ],
+    "/blogs/[url_slug]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/blogs/[url_slug].js"
     ]
   },
   "ampFirstPages": []

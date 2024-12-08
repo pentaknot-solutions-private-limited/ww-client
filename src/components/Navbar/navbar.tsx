@@ -341,6 +341,23 @@ export default function Navbar() {
                   <ul className="list-style-none">
                     <li>
                       <a
+                        onClick={() => {
+                          router.push({
+                            pathname: "/blogs",
+                          });
+                          closeMenu();
+                        }}
+                        className={
+                          router.pathname == "/blogs"
+                            ? "cursor-pointer is-active"
+                            : "cursor-pointer"
+                        }
+                      >
+                        Blogs
+                      </a>
+                    </li>
+                    <li>
+                      <a
                         onClick={sellcar}
                         className={
                           router.pathname == "/sell-car"

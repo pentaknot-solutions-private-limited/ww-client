@@ -79,11 +79,18 @@ export default function CarDetailComponent({ carData }: any) {
     const allCarsList = _carService.getAllCollection();
     allCarsList.then((res: any) => {
       if (res.status == 200) {
+        const minPrice = carDetail?.maxPrice * 0.5;
+        const maxPrice = carDetail?.maxPrice * 1.5;
         const data = res.data.data
           .filter((item: any) => {
             return cardBody?.includes(item?.Car_Body?.bodyType);
           })
-          ?.filter((item: any) => item?._id !== carData[0]?._id);
+          ?.filter((item: any) => item?._id !== carData[0]?._id)
+          ?.filter(
+            (item: any) =>
+              item?.Car_Detail?.maxPrice >= minPrice &&
+              item?.Car_Detail?.maxPrice <= maxPrice
+          );
         setRelatedCars(data?.slice(0, 6));
       }
     });
@@ -93,6 +100,7 @@ export default function CarDetailComponent({ carData }: any) {
 
   useEffect(() => {
     let cardBody = [carData[0]?.Car_Body?.bodyType];
+
     if (cardBody?.length) {
       _getAllCarList(cardBody);
     }
