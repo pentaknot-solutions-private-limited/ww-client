@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
 import Head from "next/head";
 import { Container, Grid, styled } from "@mui/material";
@@ -11,6 +11,7 @@ import BlogCards from "../../src/components/blogCards";
 import client from "../../src/lib/apollo-client";
 import { useRouter } from "next/router";
 import LoadingComponent from "../../src/components/loading/LoadingComponent";
+import LoadingContext from "../../src/context/LoadingContext";
 
 interface BlogsPageProps {
   blogs: Blog[];
@@ -22,18 +23,16 @@ const StyledGrid = styled(Grid)`
 `;
 
 export default function Blogs({ blogs }: BlogsPageProps) {
-  const [loading, setLoading] = useState(false);
+  const { siteLoading, setSiteLoading } = useContext(LoadingContext);
+  useEffect(() => {
+    setSiteLoading(false);
+  }, []);
 
   return (
     <section className="faq-section">
       <Head>
         <title>Wish Wheels | Blogs</title>
       </Head>
-      {loading && (
-        <div className="site-loader-body">
-          <LoadingComponent />
-        </div>
-      )}
       <Container maxWidth="lg">
         <h3 className="faq-section-title mb-24">Blogs</h3>
         <div className="blog-lists">
@@ -41,7 +40,7 @@ export default function Blogs({ blogs }: BlogsPageProps) {
             {blogs &&
               blogs.map((blog, index: number) => (
                 <Grid key={index} item sm={6} md={4}>
-                  <BlogCards {...blog} setLoading={setLoading} />
+                  <BlogCards {...blog} setLoading={setSiteLoading} />
                 </Grid>
               ))}
           </StyledGrid>
@@ -70,6 +69,5 @@ export async function getStaticProps() {
     props: {
       blogs,
     },
-    revalidate: 60, // Regenerate the page every 60 seconds
   };
 }

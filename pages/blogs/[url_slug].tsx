@@ -4,6 +4,8 @@ import client from "../../src/lib/apollo-client";
 import { BlocksRenderer } from "../../src/components/block-renderer";
 import { Container } from "@mui/material";
 import { useRouter } from "next/router";
+import LoadingContext from "../../src/context/LoadingContext";
+import { useContext, useEffect } from "react";
 
 interface Blog {
   id: string;
@@ -17,6 +19,11 @@ interface BlogPageProps {
 }
 
 const BlogPage = ({ blog }: BlogPageProps) => {
+  const { siteLoading, setSiteLoading } = useContext(LoadingContext);
+  useEffect(() => {
+    setSiteLoading(false);
+  }, []);
+
   const router = useRouter();
   if (router.isFallback) {
     return <p>Loading...</p>;

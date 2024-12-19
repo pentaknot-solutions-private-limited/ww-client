@@ -20,6 +20,7 @@ import Link from "next/link";
 import { Alert, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import GoogleTagManager from "../src/scripts/GoogleTagManager";
+import LoadingContext from "../src/context/LoadingContext";
 
 // const outerTheme = createTheme({
 //   typography:{
@@ -35,6 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [isUserIsSubscribed, setIsUserIsSubscribed] = useState<boolean>(false);
   const [showPopupForm, setShowPopupForm] = useState<boolean>(false);
   const [successAlert, setSuccessAlert] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   // Variables
   const hide = () => {
@@ -100,29 +102,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     }, 3000);
   }, []);
 
-  // useEffect(() => {
-  //   if (showPopupForm) {
-  //     setIsUserIsSubscribed(false);
-  //   }
-  // }, [showPopupForm]);
-
   return (
     <>
-      {/* <Script
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-      /> */}
-
-      {/* <Script id="googleAnalytic" strategy="lazyOnload">
-        {`
-window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SM7H9X2PXT');
-                `}
-                
-      </Script> */}
-      {/* Google tag (gtag.js) */}
       <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-SM7H9X2PXT"
@@ -147,81 +128,85 @@ window.dataLayer = window.dataLayer || [];
       {/* <GoogleTagManager /> */}
       <ThemeProvider theme={theme}>
         <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
-          <ContactFormContext.Provider
-            value={{ showPopupForm, setShowPopupForm }}
+          <LoadingContext.Provider
+            value={{ siteLoading: loading, setSiteLoading: setLoading }}
           >
-            <Layout>
-              <Component {...pageProps} />
-              {isIos && (
-                <div
-                  // className="add-to-home-screen"
-                  className={
-                    !hidePopup
-                      ? "add-to-home-screen"
-                      : "add-to-home-screen hide"
-                  }
-                >
-                  <button
-                    onClick={() => setOpenModel(true)}
-                    className="btn-secondary"
+            <ContactFormContext.Provider
+              value={{ showPopupForm, setShowPopupForm }}
+            >
+              <Layout>
+                <Component {...pageProps} />
+                {isIos && (
+                  <div
+                    // className="add-to-home-screen"
+                    className={
+                      !hidePopup
+                        ? "add-to-home-screen"
+                        : "add-to-home-screen hide"
+                    }
                   >
-                    Add to Home Screen
-                  </button>
-                  <span
-                    className="closebtn"
-                    onClick={(e: any) => {
-                      e.preventDefault();
-                      localStorage.setItem(
-                        "installPrompt",
-                        JSON.stringify(true)
-                      );
-                      hide();
-                    }}
-                  >
-                    &times;
-                  </span>
-                  <InstallPWAModel open={openModel} setOpen={setOpenModel} />
-                </div>
-              )}
-              {(!isUserIsSubscribed && showPopupForm) || showPopupForm ? (
-                <FormPopup
-                  contactUsLead={_contactUsLead}
-                  showPopupForm={showPopupForm}
-                  setShowPopupForm={setShowPopupForm}
-                />
-              ) : null}
-              {successAlert && (
-                // <Alert
-                //   className="success-login-popup"
-                //   severity="success"
-                //   action={
-                //     <IconButton
-                //       aria-label="close"
-                //       color="inherit"
-                //       size="small"
-                //       onClick={() => {
-                //         setSuccessAlert(false);
-                //       }}
-                //     >
-                //       <CloseIcon fontSize="inherit" />
-                //     </IconButton>
-                //   }
-                // >
-                //   Thanks for sharing details - Our team will contact you
-                //   shortly.
-                // </Alert>
-                <div>
-                  <div className="dropbox"></div>
-                  <div className="succes-card">
-                    <img src={SuccessBookingPng.src} alt="succes booking" />
-                    <h4>Thanks for sharing details</h4>
-                    <p>Our team will contact you shortly.</p>
-                    <Link href="/">Home</Link>
+                    <button
+                      onClick={() => setOpenModel(true)}
+                      className="btn-secondary"
+                    >
+                      Add to Home Screen
+                    </button>
+                    <span
+                      className="closebtn"
+                      onClick={(e: any) => {
+                        e.preventDefault();
+                        localStorage.setItem(
+                          "installPrompt",
+                          JSON.stringify(true)
+                        );
+                        hide();
+                      }}
+                    >
+                      &times;
+                    </span>
+                    <InstallPWAModel open={openModel} setOpen={setOpenModel} />
                   </div>
-                </div>
-              )}
-            </Layout>
-          </ContactFormContext.Provider>
+                )}
+                {(!isUserIsSubscribed && showPopupForm) || showPopupForm ? (
+                  <FormPopup
+                    contactUsLead={_contactUsLead}
+                    showPopupForm={showPopupForm}
+                    setShowPopupForm={setShowPopupForm}
+                  />
+                ) : null}
+                {successAlert && (
+                  // <Alert
+                  //   className="success-login-popup"
+                  //   severity="success"
+                  //   action={
+                  //     <IconButton
+                  //       aria-label="close"
+                  //       color="inherit"
+                  //       size="small"
+                  //       onClick={() => {
+                  //         setSuccessAlert(false);
+                  //       }}
+                  //     >
+                  //       <CloseIcon fontSize="inherit" />
+                  //     </IconButton>
+                  //   }
+                  // >
+                  //   Thanks for sharing details - Our team will contact you
+                  //   shortly.
+                  // </Alert>
+                  <div>
+                    <div className="dropbox"></div>
+                    <div className="succes-card">
+                      <img src={SuccessBookingPng.src} alt="succes booking" />
+                      <h4>Thanks for sharing details</h4>
+                      <p>Our team will contact you shortly.</p>
+                      <Link href="/">Home</Link>
+                    </div>
+                  </div>
+                )}
+              </Layout>
+            </ContactFormContext.Provider>
+          </LoadingContext.Provider>
         </AuthContext.Provider>
       </ThemeProvider>
     </>

@@ -3194,6 +3194,7 @@ input:focus-visible {
   font-size: 24px;
   border-radius: 4px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: #ffffff;
 }
 .site-loader .loading-text {
   display: inline-block;
@@ -3241,8 +3242,8 @@ input:focus-visible {
   align-items: center;
   justify-content: center;
   inset: 0;
-  z-index: 9;
-  background-color: rgb(0 0 0 / 0.2);
+  z-index: 99;
+  background-color: rgb(0 0 0 / 0.8);
 }
 .site-loader-body .site-loader {
   z-index: 10;

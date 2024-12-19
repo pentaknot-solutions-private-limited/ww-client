@@ -23,7 +23,9 @@ import { OtpService } from "../../services/user/otpService";
 import { AuthenticationService } from "../../services/user/authenticationService";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import AuthContext from "../../context/AuthContext";
+import LoadingContext from "../../context/LoadingContext";
 import CloseIcon from "@mui/icons-material/Close";
+import LoadingComponent from "../loading/LoadingComponent";
 
 export default function Navbar() {
   // State
@@ -44,6 +46,7 @@ export default function Navbar() {
 
   // Context
   const { authenticated, setAuthenticated } = useContext(AuthContext);
+  const { siteLoading, setSiteLoading } = useContext(LoadingContext);
 
   // Variable
   const router = useRouter();
@@ -342,6 +345,9 @@ export default function Navbar() {
                     <li>
                       <a
                         onClick={() => {
+                          if (router.pathname !== "/blogs") {
+                            setSiteLoading(true);
+                          }
                           router.push({
                             pathname: "/blogs",
                           });
@@ -479,6 +485,11 @@ export default function Navbar() {
           </div>
         </Container>
       </header>
+      {siteLoading && (
+        <div className="site-loader-body">
+          <LoadingComponent />
+        </div>
+      )}
       <Modal
         open={authenticated}
         onClose={handleClose}
