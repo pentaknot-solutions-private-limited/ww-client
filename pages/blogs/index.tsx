@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { gql, useQuery } from "@apollo/client";
 import Head from "next/head";
 import { Container, Grid, styled } from "@mui/material";
 import {
@@ -8,10 +7,10 @@ import {
   GET_BLOGS,
 } from "../../src/graphql/queries/getBlogs";
 import BlogCards from "../../src/components/blogCards";
-import client from "../../src/lib/apollo-client";
 import { useRouter } from "next/router";
 import LoadingComponent from "../../src/components/loading/LoadingComponent";
 import LoadingContext from "../../src/context/LoadingContext";
+import { fetchGraphQL } from "../../src/lib/apollo-client";
 
 interface BlogsPageProps {
   blogs: Blog[];
@@ -51,7 +50,7 @@ export default function Blogs({ blogs }: BlogsPageProps) {
 }
 
 export async function getStaticProps() {
-  const { data } = await client.query<BlogResponse>({
+  const data = await fetchGraphQL<BlogResponse>({
     query: GET_BLOGS,
   });
 

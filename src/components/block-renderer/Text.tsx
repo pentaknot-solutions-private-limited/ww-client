@@ -1,27 +1,12 @@
-import * as React from "react";
-
+import React from "react";
 import { useComponentsContext } from "./BlocksRenderer";
 
-interface TextInlineNode {
-  type: "text";
-  text: string;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
-  strikethrough?: boolean;
-  code?: boolean;
-}
-
-type Modifier = Exclude<keyof TextInlineNode, "type" | "text">;
-
-type TextInlineProps = Omit<TextInlineNode, "type">;
-
-const Text = ({ text, ...modifiers }: TextInlineProps) => {
+const Text = ({ text, ...modifiers }: any) => {
   // Get matching React component from the context
-  const { modifiers: modifierComponents, missingModifierTypes } =
+  const { modifiers: modifierComponents, missingModifierTypes }: any =
     useComponentsContext();
 
-  const modifierNames = Object.keys(modifiers) as Modifier[];
+  const modifierNames = Object.keys(modifiers);
 
   // Loop on each active modifier to wrap the text in its component
   return modifierNames.reduce(
@@ -53,5 +38,4 @@ const Text = ({ text, ...modifiers }: TextInlineProps) => {
   );
 };
 
-export type { TextInlineNode, Modifier };
 export { Text };

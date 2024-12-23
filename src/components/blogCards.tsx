@@ -17,8 +17,9 @@ export default function BlogCards(
 
   // Functions
   const handleClick = () => {
+    const encodedSlug = encodeURIComponent(blog.url_slug);
     router.push({
-      pathname: `/blogs/${blog?.url_slug}`,
+      pathname: `/blogs/${encodedSlug}`,
     });
     blog?.setLoading(true);
   };

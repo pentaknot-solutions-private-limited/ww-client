@@ -1,11 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { gql } from "@apollo/client";
-import client from "../../src/lib/apollo-client";
-import { BlocksRenderer } from "../../src/components/block-renderer";
 import { Container } from "@mui/material";
 import { useRouter } from "next/router";
 import LoadingContext from "../../src/context/LoadingContext";
 import { useContext, useEffect } from "react";
+import { fetchGraphQL } from "../../src/lib/apollo-client";
+import { BlocksRenderer } from "../../src/components/block-renderer";
 
 interface Blog {
   id: string;
@@ -31,7 +30,7 @@ const BlogPage = ({ blog }: BlogPageProps) => {
   if (!blog) return <p>Blog not found.</p>;
 
   return (
-    <section className="section-about-us blog-detail-page">
+    <section className="blog-detail-page">
       <Container maxWidth="lg">
         <h1 className="section-title">{blog.title}</h1>
         {blog.imageUrl && (
@@ -46,7 +45,7 @@ const BlogPage = ({ blog }: BlogPageProps) => {
 };
 
 // GraphQL query to fetch all slugs
-const GET_ALL_SLUGS = gql`
+const GET_ALL_SLUGS = `
   query GetAllSlugs {
     blogs {
       data {
@@ -59,7 +58,7 @@ const GET_ALL_SLUGS = gql`
 `;
 
 // GraphQL query to fetch a blog by slug
-const GET_BLOG_BY_SLUG = gql`
+const GET_BLOG_BY_SLUG = `
   query GetBlogBySlug($url_slug: String!) {
     blogs(filters: { url_slug: { eq: $url_slug } }) {
       data {
@@ -82,7 +81,7 @@ const GET_BLOG_BY_SLUG = gql`
 
 // Pre-render all blog pages based on slugs
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await client.query({ query: GET_ALL_SLUGS });
+  const data = await fetchGraphQL<any>({ query: GET_ALL_SLUGS });
 
   const paths = data.blogs.data.map((blog: any) => ({
     params: { url_slug: blog.attributes.url_slug },
@@ -97,10 +96,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // Fetch blog data for a specific slug
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { url_slug } = params as { url_slug: string };
-
-  const { data } = await client.query({
+  const decodedUrlSlug = decodeURIComponent(url_slug);
+  const data = await fetchGraphQL<any>({
     query: GET_BLOG_BY_SLUG,
-    variables: { url_slug },
+    variables: { url_slug: decodedUrlSlug },
   });
 
   const blogData = data.blogs.data[0];
@@ -119,7 +118,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: { blog },
-    revalidate: 10,
   };
 };
 

@@ -1,8 +1,2 @@
-import { BlocksRenderer } from './BlocksRenderer';
-
-import type { RootNode } from './BlocksRenderer';
-
-type BlocksContent = RootNode[];
-
+import { BlocksRenderer } from "./BlocksRenderer";
 export { BlocksRenderer };
-export type { BlocksContent };

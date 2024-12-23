@@ -1,36 +1,29 @@
-import * as React from 'react';
+import React from "react";
+import { useComponentsContext } from "./BlocksRenderer";
+import { Text } from "./Text";
 
-import { useComponentsContext, type Node, type GetPropsFromNode } from './BlocksRenderer';
-import { Text } from './Text';
-
-type BlockComponentProps = GetPropsFromNode<Node>;
-
-interface BlockProps {
-  content: Node;
-}
-
-const voidTypes = ['image'];
+const voidTypes = ["image"];
 
 /**
  * Add props that are specific to a block type, and not present in that node type
  */
-const augmentProps = (content: Node) => {
+const augmentProps = (content: any) => {
   const { children: childrenNodes, type, ...props } = content;
 
-  if (type === 'code') {
+  if (type === "code") {
     // Builds a plain text string from an array of nodes, regardless of links or modifiers
-    const getPlainText = (children: typeof childrenNodes): string => {
-      return children.reduce((currentPlainText, node) => {
-        if (node.type === 'text') {
+    const getPlainText = (children: any) => {
+      return children.reduce((currentPlainText: any, node: any) => {
+        if (node.type === "text") {
           return currentPlainText.concat(node.text);
         }
 
-        if (node.type === 'link') {
+        if (node.type === "link") {
           return currentPlainText.concat(getPlainText(node.children));
         }
 
         return currentPlainText;
-      }, '');
+      }, "");
     };
 
     return {
@@ -42,17 +35,19 @@ const augmentProps = (content: Node) => {
   return props;
 };
 
-const Block = ({ content }: BlockProps) => {
+const Block = ({ content }: any) => {
   const { children: childrenNodes, type, ...props } = content;
 
   // Get matching React component from the context
-  const { blocks, missingBlockTypes } = useComponentsContext();
-  const BlockComponent = blocks[type] as React.ComponentType<BlockComponentProps> | undefined;
+  const { blocks, missingBlockTypes }: any = useComponentsContext();
+  const BlockComponent = blocks[type];
 
   if (!BlockComponent) {
     // Only warn once per missing block
     if (!missingBlockTypes.includes(type)) {
-      console.warn(`[@strapi/block-react-renderer] No component found for block type "${type}"`);
+      console.warn(
+        `[@strapi/block-react-renderer] No component found for block type "${type}"`
+      );
       missingBlockTypes.push(type);
     }
 
@@ -67,10 +62,10 @@ const Block = ({ content }: BlockProps) => {
 
   // Handle empty paragraphs separately as they should render a <br> tag
   if (
-    type === 'paragraph' &&
+    type === "paragraph" &&
     childrenNodes.length === 1 &&
-    childrenNodes[0].type === 'text' &&
-    childrenNodes[0].text === ''
+    childrenNodes[0].type === "text" &&
+    childrenNodes[0].text === ""
   ) {
     return <br />;
   }
@@ -79,8 +74,8 @@ const Block = ({ content }: BlockProps) => {
 
   return (
     <BlockComponent {...augmentedProps}>
-      {childrenNodes.map((childNode, index) => {
-        if (childNode.type === 'text') {
+      {childrenNodes.map((childNode: any, index: any) => {
+        if (childNode.type === "text") {
           const { type: _type, ...childNodeProps } = childNode;
 
           // TODO use node as key with WeakMap
