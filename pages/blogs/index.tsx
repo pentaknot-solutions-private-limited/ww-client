@@ -21,10 +21,37 @@ const StyledGrid = styled(Grid)`
   }
 `;
 
-export default function Blogs({ blogs }: BlogsPageProps) {
+export default function Blogs() {
   const { siteLoading, setSiteLoading } = useContext(LoadingContext);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  async function getAllBlogs() {
+    try {
+      setSiteLoading(true); // Start loading
+      const data = await fetchGraphQL<BlogResponse>({
+        query: GET_BLOGS,
+      });
+
+      const blogs: Blog[] = data.blogs.data.map((blog) => ({
+        id: blog.id,
+        title: blog.attributes.title,
+        url_slug: blog.attributes.url_slug,
+        image: blog.attributes.image?.data
+          ? { url: blog.attributes.image.data.attributes.url }
+          : null,
+        content: blog.attributes.content,
+      }));
+
+      setBlogs(blogs);
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    } finally {
+      setSiteLoading(false);
+    }
+  }
+
   useEffect(() => {
-    setSiteLoading(false);
+    getAllBlogs();
   }, []);
 
   return (
@@ -47,26 +74,4 @@ export default function Blogs({ blogs }: BlogsPageProps) {
       </Container>
     </section>
   );
-}
-
-export async function getStaticProps() {
-  const data = await fetchGraphQL<BlogResponse>({
-    query: GET_BLOGS,
-  });
-
-  const blogs: Blog[] = data.blogs.data.map((blog) => ({
-    id: blog.id,
-    title: blog.attributes.title,
-    url_slug: blog.attributes.url_slug,
-    image: blog.attributes.image?.data
-      ? { url: blog.attributes.image.data.attributes.url }
-      : null,
-    content: blog.attributes.content,
-  }));
-
-  return {
-    props: {
-      blogs,
-    },
-  };
 }

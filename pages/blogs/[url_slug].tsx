@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { Container } from "@mui/material";
 import { useRouter } from "next/router";
 import LoadingContext from "../../src/context/LoadingContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { fetchGraphQL } from "../../src/lib/apollo-client";
 import { BlocksRenderer } from "../../src/components/block-renderer";
 
@@ -17,16 +17,42 @@ interface BlogPageProps {
   blog: Blog | null;
 }
 
-const BlogPage = ({ blog }: BlogPageProps) => {
+const BlogPage = () => {
   const { siteLoading, setSiteLoading } = useContext(LoadingContext);
-  useEffect(() => {
-    setSiteLoading(false);
-  }, []);
-
+  const [blog, setBlog] = useState<Blog | null>(null);
   const router = useRouter();
-  if (router.isFallback) {
-    return <p>Loading...</p>;
-  }
+  const { url_slug } = router.query;
+
+  const getBlogBySlug = async () => {
+    try {
+      setSiteLoading(true);
+      const decodedUrlSlug = decodeURIComponent(url_slug as string);
+      const data = await fetchGraphQL<any>({
+        query: GET_BLOG_BY_SLUG,
+        variables: { url_slug: decodedUrlSlug },
+      });
+
+      const blogData = data.blogs.data[0];
+      const blog: Blog = {
+        id: blogData.id,
+        title: blogData.attributes.title,
+        content: blogData.attributes.content,
+        imageUrl: blogData.attributes.image?.data
+          ? `${blogData.attributes.image.data.attributes.url}`
+          : null,
+      };
+      setBlog(blog);
+    } catch (error) {
+      console.error("Error fetching blog:", error);
+    } finally {
+      setSiteLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getBlogBySlug();
+  }, [url_slug]);
+
   if (!blog) return <p>Blog not found.</p>;
 
   return (
@@ -78,47 +104,5 @@ const GET_BLOG_BY_SLUG = `
     }
   }
 `;
-
-// Pre-render all blog pages based on slugs
-export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await fetchGraphQL<any>({ query: GET_ALL_SLUGS });
-
-  const paths = data.blogs.data.map((blog: any) => ({
-    params: { url_slug: blog.attributes.url_slug },
-  }));
-
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
-
-// Fetch blog data for a specific slug
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { url_slug } = params as { url_slug: string };
-  const decodedUrlSlug = decodeURIComponent(url_slug);
-  const data = await fetchGraphQL<any>({
-    query: GET_BLOG_BY_SLUG,
-    variables: { url_slug: decodedUrlSlug },
-  });
-
-  const blogData = data.blogs.data[0];
-  if (!blogData) {
-    return { notFound: true };
-  }
-
-  const blog: Blog = {
-    id: blogData.id,
-    title: blogData.attributes.title,
-    content: blogData.attributes.content,
-    imageUrl: blogData.attributes.image?.data
-      ? `${blogData.attributes.image.data.attributes.url}`
-      : null,
-  };
-
-  return {
-    props: { blog },
-  };
-};
 
 export default BlogPage;
