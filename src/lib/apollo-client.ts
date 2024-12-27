@@ -18,6 +18,7 @@ export const fetchGraphQL = async <T>({
 }: FetchGraphQLParams): Promise<T> => {
   const response = await fetch(graphqlBaseUrl, {
     method: "POST",
+    mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

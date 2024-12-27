@@ -19,6 +19,7 @@ const token = `409a52817b257fd8f2df54504a8de6740df7f2cc46918f81b886560066d4e57c2
  */ const fetchGraphQL = async ({ query , variables  })=>{
     const response = await fetch(graphqlBaseUrl, {
         method: "POST",
+        mode: "no-cors",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
