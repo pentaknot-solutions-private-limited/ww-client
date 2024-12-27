@@ -9,7 +9,7 @@ exports.modules = {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "U": () => (/* binding */ fetchGraphQL)
 /* harmony export */ });
-const graphqlBaseUrl = "http://13.126.235.68:1337/graphql";
+const graphqlBaseUrl = "https://ww-blog-api.pentaknot.com/graphql";
 const token = `409a52817b257fd8f2df54504a8de6740df7f2cc46918f81b886560066d4e57c25341fc43abd90cf251faf2d6490bdf5e03be522f1ddc577e3f8a60a4258d9c0407fd2d92f66e4c57af4dd61b10d31bb196eb3ed83fcefd69451ceb929df7006ecca582955847575a48fd6f4be2018285cf69c83c35273dde2771c3cb79bbdc2`;
 /**
  * Common function to execute GraphQL queries using fetch.
@@ -19,7 +19,6 @@ const token = `409a52817b257fd8f2df54504a8de6740df7f2cc46918f81b886560066d4e57c2
  */ const fetchGraphQL = async ({ query , variables  })=>{
     const response = await fetch(graphqlBaseUrl, {
         method: "POST",
-        mode: "no-cors",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`

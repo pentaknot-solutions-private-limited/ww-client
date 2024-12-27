@@ -30,6 +30,10 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1__["default"] {
                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(next_document__WEBPACK_IMPORTED_MODULE_1__.Head, {
                     children: [
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
+                            "http-equiv": "Content-Security-Policy",
+                            content: "upgrade-insecure-requests"
+                        }),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
                             name: "apple-mobile-web-app-capable",
                             content: "yes"
                         }),

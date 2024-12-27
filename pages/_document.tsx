@@ -14,9 +14,17 @@ class MyDocument extends Document {
           {/* <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" /> */}
           {/* <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon-theme.png" /> */}
           {/* <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon-theme-invert.png" /> */}
+          <meta
+            http-equiv="Content-Security-Policy"
+            content="upgrade-insecure-requests"
+          />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="green" />
           <meta name="apple-mobile-web-app-title" content="WishWheels" />
+          {/* <meta
+            http-equiv="Content-Security-Policy"
+            content="upgrade-insecure-requests"
+          /> */}
           {/* sizes="2048x2732" */}
           <link
             href="favicon/apple-touch-startup-image"
