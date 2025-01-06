@@ -1533,8 +1533,8 @@ function Navbar() {
                                         children: "Call Us:"
                                     }),
                                     /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                        href: "tel:+91-9967164485",
-                                        children: "+91-9967164485"
+                                        href: "tel:+918655468901",
+                                        children: "+918655468901"
                                     })
                                 ]
                             })
