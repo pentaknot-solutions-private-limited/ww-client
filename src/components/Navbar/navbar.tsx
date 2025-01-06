@@ -307,7 +307,7 @@ export default function Navbar() {
           >
             <div className="contact-us-number">
               <span>Call Us:</span>
-              <a href="tel:+918655468901">+918655468901</a>
+              <a href="tel:+918655468901">+91 86554 68901 </a>
             </div>
           </Container>
         </div>

@@ -1534,7 +1534,7 @@ function Navbar() {
                                     }),
                                     /*#__PURE__*/ jsx_runtime_.jsx("a", {
                                         href: "tel:+918655468901",
-                                        children: "+918655468901"
+                                        children: "+91\xa086554\xa068901 "
                                     })
                                 ]
                             })
